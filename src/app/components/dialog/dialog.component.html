@@ -1,0 +1,23 @@
+<h1 mat-dialog-title class='dialog-bar'>{{data.title}}</h1>
+
+<div mat-dialog-content>
+    <div fxLayout="row">
+        <div fxFlex="1 1 20%">
+          <mat-icon color="{{data.color}}" >{{data.icon}}</mat-icon>
+
+        </div>
+        <div fxFlex="1 1 80">
+            {{data.description}}
+        </div>
+      </div>
+  
+</div>
+<div mat-dialog-actions>
+  
+    <div fxFlex></div>
+     
+      <button mat-button mat-raised-button cdkFocusInitial color="{{data.color}}"  mat-dialog-close>Ok!</button>
+      <button mat-button mat-raised-button cdkFocusInitial  color="{{data.color}}"  mat-dialog-close>Close</button>
+
+   
+</div>

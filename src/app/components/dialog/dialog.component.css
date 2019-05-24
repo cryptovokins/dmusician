@@ -1,0 +1,9 @@
+div {
+    padding: .5rem;
+  }
+.mat-icon{
+    font-size: 2rem;
+}
+.mat-dialog-actions {
+    padding-bottom: 1rem;
+}
