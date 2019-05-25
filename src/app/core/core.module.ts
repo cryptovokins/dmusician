@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import {
-    SessionRepoService,
-    SongsRepoService
-} from './repositories';
 import { SwarmDataSource } from './datasources';
+import { SessionRepoService, SongsRepoService, CoversRepoService } from './repositories';
+
 
 @NgModule({
     imports: [ CommonModule ],
     providers: [
         SessionRepoService,
         SwarmDataSource,
-        SongsRepoService
+        SongsRepoService,
+        CoversRepoService
     ]
 })
 export class CoreModule {}
