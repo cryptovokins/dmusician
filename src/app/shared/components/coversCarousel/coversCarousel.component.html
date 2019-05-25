@@ -7,6 +7,11 @@
         </div>
     </div>
     <div class="viewport">
-        <img *ngFor="let cover of covers" class="img-cover" src="{{cover.img}}">
+        <img
+        *ngFor="let cover of covers"
+        class="img-cover"
+        src="{{cover.img}}"
+        (click)="onSelectAlbum(cover.id)"
+        >
     </div>
 </div>

@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Images } from '../../../entities/images';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
     selector: 'covers-carousel',
@@ -19,11 +18,18 @@ export class CoversCarouselComponent {
     @Output()
     public moveRight: EventEmitter<any> = new EventEmitter<any>();
 
+    @Output()
+    public albumSelected: EventEmitter<number> = new EventEmitter<number>();
+
     public onMoveLeft() {
         this.moveLeft.emit();
     }
 
     public onMoveRight() {
         this.moveRight.emit();
+    }
+
+    public onSelectAlbum(id: number) {
+        this.albumSelected.emit(id);
     }
 }
