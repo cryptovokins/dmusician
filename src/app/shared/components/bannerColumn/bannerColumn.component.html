@@ -1,0 +1,8 @@
+<div class="column-banner">
+    <img
+    *ngFor="let cmpBanner of banners"
+    class="banner"
+    src="{{cmpBanner.img}}"
+    (click)="clickOnBanner(cmpBanner.id)"
+    >
+</div>
