@@ -9,6 +9,9 @@ export class TagFilterComponent {
     public isVisible: Boolean = false;
 
     @Input()
+    public buttonText: string = 'Filter'
+
+    @Input()
     public tags: string[] = [];
 
     @Output()

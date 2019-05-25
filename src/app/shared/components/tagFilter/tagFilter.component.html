@@ -1,10 +1,10 @@
 <div class="drop-down-menu">
     <button
     mat-raised-button
-    color="primary"
+    color="accent"
     class="drop-down-btn"
     (click)="showHidden()"
-    >Filter</button>
+    >{{buttonText}}</button>
     <ul class="drop-down-list" [ngClass]="{'visible': isVisible}">
         <li
         *ngFor="let itemTag of tags"

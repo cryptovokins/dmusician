@@ -50,6 +50,7 @@ import { BannerColumnComponent } from './components/bannerColumn/bannerColumn.co
 import { LoadingComponent } from './components/loading/loading.component';
 import { CoversCarouselComponent } from './components/coversCarousel/coversCarousel.component';
 import { SongsListComponent } from './components/songsList/songsList.component';
+import { SearchBarComponent } from './components/searchBar/searchBar.component';
 
 
 const materialModules = [  
@@ -97,7 +98,8 @@ const materialModules = [
     BannerColumnComponent,
     LoadingComponent,
     CoversCarouselComponent,
-    SongsListComponent
+    SongsListComponent,
+    SearchBarComponent
   ],
   imports: [
     CommonModule,
@@ -113,7 +115,8 @@ const materialModules = [
     BannerColumnComponent,
     LoadingComponent,
     CoversCarouselComponent,
-    SongsListComponent
+    SongsListComponent,
+    SearchBarComponent
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {}},
