@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { SessionRepoService } from '../core';
+
 @Component({
   selector: 'app-home-player',
   templateUrl: './home-player.component.html',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePlayerComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private sessionRepo: SessionRepoService
+  ) { }
 
   ngOnInit() {
+    console.log(this.sessionRepo.getId());
   }
 
 }
