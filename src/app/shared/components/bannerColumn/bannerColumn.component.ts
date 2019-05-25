@@ -6,7 +6,7 @@ import { Banner } from '../../../entities';
     templateUrl: './bannerColumn.component.html',
     styleUrls: ['./bannerColumn.component.css']
 })
-export class BannerColumn {
+export class BannerColumnComponent {
 
     @Input()
     public banners: Banner[] = [
