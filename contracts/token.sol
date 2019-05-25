@@ -3,16 +3,9 @@ pragma solidity ^0.5.8;
 // ----------------------------------------------------------------------------
 // DMusic token contract
 //
-// Symbol      : DDM
-// Name        : DMusic 
-// Total supply: 100000000  one hundred
-// Decimals    : 18
-//
-// Enjoy.
 //
 // (c) by Viking  / 2019. The MIT Licence.
 // ----------------------------------------------------------------------------
-
 
 // ----------------------------------------------------------------------------
 // Safe maths
@@ -37,22 +30,6 @@ contract SMath {
     }
 }
 
-
-// ----------------------------------------------------------------------------
-// ERC Token Standard #20 Interface
-// https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md
-// ----------------------------------------------------------------------------
-contract ERC20Interface {
-    function totalSupply() public  returns (uint);
-    function balanceOf(address tokenOwner) public  returns (uint balance);
-    function allowance(address tokenOwner, address spender) public  returns (uint remaining);
-    function transfer(address to, uint tokens) public returns (bool success);
-    function approve(address spender, uint tokens) public returns (bool success);
-    function transferFrom(address from, address to, uint tokens) public returns (bool success);
-
-    event Transfer(address indexed from, address indexed to, uint tokens);
-    event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
-}
 
 
 // ----------------------------------------------------------------------------
@@ -99,20 +76,19 @@ contract Owned {
 // ERC20 Token, with the addition of symbol, name and decimals and assisted
 // token transfers
 // ----------------------------------------------------------------------------
-contract Token is ERC20Interface, Owned, SMath {
-    string public symbol;
-    string public  name;
-    uint8 public decimals;
-    uint  _totalSupply;
-  	address public crowdsaleAddress;
-    uint256 private _guardCounter = 1;
+contract Token is Owned, SMath {
 
-    event loguint256(uint256 err);
+    uint256 private _guardCounter = 1;
+    address public authors;
+    address public companies;
+    bool public contractOff;
+
+    event Buy( address indexed to, uint tokens);
+    event Advertisement( address indexed to, uint tokens);
+    event Founded(address indexed companies, uint tokens);
 
     mapping(address => uint) balances;
-    mapping(address => mapping(address => uint)) allowed;
-    
-  
+
 
      modifier nonReentrant() {
         _guardCounter += 1;
@@ -123,119 +99,79 @@ contract Token is ERC20Interface, Owned, SMath {
     // ------------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------------
-    constructor() public ERC20Interface(){
-        symbol = "DM";
-        name = "DMusic";
-        decimals = 18;
-        _totalSupply = 100000000 * 10**uint(decimals); // 100,000,000 tokens
-        balances[msg.sender] = _totalSupply;
-        emit Transfer(address(0), owner, _totalSupply);
-    }
+    constructor() public Token(){
+        authors = 0xCc3B9382e4585c534189557fB4f3cFE85b170cEE;
+        companies = 0x26d844D024020eF5D93Beb9D7bfF145645D00286;
+        contractOff = false;
 
-
-    // ------------------------------------------------------------------------
-    // Total supply
-    // ------------------------------------------------------------------------
-    function totalSupply() public  returns (uint) {
-        return safeSub(_totalSupply, balances[address(0)]);
     }
 
 
     // ------------------------------------------------------------------------
     // Get the token balance for account tokenOwner
     // ------------------------------------------------------------------------
-    function balanceOf(address tokenOwner) public  returns (uint balance) {
+    function balanceOf(address tokenOwner) public  view returns (uint balance) {
         return balances[tokenOwner];
     }
 
 
     // ------------------------------------------------------------------------
-    // Transfer the balance from token owner's account to to account
-    // - Owner's account must have sufficient balance to transfer
-    // - 0 value transfers are allowed
+    // set status contract
     // ------------------------------------------------------------------------
-    function transfer(address to, uint tokens) public returns (bool success) {
-
-        balances[msg.sender] = safeSub(balances[msg.sender], tokens);
-        balances[to] = safeAdd(balances[to], tokens);
-        emit Transfer(msg.sender, to, tokens);
-
-        return true;
-
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Token owner can approve for spender to transferFrom(...) tokens
-    // from the token owner's account
-    //
-    // https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md
-    // recommends that there are no checks for the approval double-spend attack
-    // as this should be implemented in user interfaces 
-    // ------------------------------------------------------------------------
-    function approve(address spender, uint tokens) public returns (bool success) {
-        allowed[msg.sender][spender] = tokens;
-        emit Approval(msg.sender, spender, tokens);
+    function setStateContract(bool value) public onlyOwner returns (bool success)  {
+        contractOff = value;
         return true;
     }
 
 
     // ------------------------------------------------------------------------
-    // Transfer tokens from the from account to the to account
-    // 
-    // The calling account must already have sufficient tokens approve(...)-d
-    // for spending from the from account and
-    // - From account must have sufficient balance to transfer
-    // - Spender must have sufficient allowance to transfer
-    // - 0 value transfers are allowed
+    // buy song:
+    // send the payment from user account to author account
     // ------------------------------------------------------------------------
-    function transferFrom(address from, address to, uint tokens) public returns (bool success) {
-        require(to != address(0));
-        require(tokens <= balances[from]);
-        require(tokens <= allowed[from][msg.sender]);
-        balances[from] = safeSub(balances[from], tokens);
-        allowed[from][msg.sender] = safeSub(allowed[from][msg.sender], tokens);
-        balances[to] = safeAdd(balances[to], tokens);
-        emit Transfer(from, to, tokens);
+    function buySong( uint tokens) public returns (bool success) {
+        require(contractOff == true);
+
+        balances[authors] = safeAdd(balances[authors], tokens);
+
+        emit Buy(authors, tokens);
+
         return true;
     }
-
-
     // ------------------------------------------------------------------------
-    // Returns the amount of tokens approved by the owner that can be
-    // transferred to the spender's account
+    // clickAdvertisement:
+    // send award to customer
     // ------------------------------------------------------------------------
-    function allowance(address owner, address spender) public  returns (uint remaining) {
-        return allowed[owner][spender];
-    }
+    function clickAdvertisement( uint tokens) public returns (bool success) {
+        require(contractOff == true);
 
+       
+        balances[companies] = safeAdd(balances[companies], tokens);
+        emit Advertisement(companies, tokens);
 
-    // ------------------------------------------------------------------------
-    // Token owner can approve for spender to transferFrom(...) tokens
-    // from the token owner's account. The spender contract function
-    // receiveApproval(...) is then executed
-    // ------------------------------------------------------------------------
-    function approveAndCall(address spender, uint tokens, bytes memory data) public returns (bool success) {
-        allowed[msg.sender][spender] = tokens;
-        emit Approval(msg.sender, spender, tokens);
-        ApproveAndCallFallBack(spender).receiveApproval(msg.sender, tokens, address(this), data);
         return true;
     }
+    // ------------------------------------------------------------------------
+    // clickAdvertisement:
+    // send award to customer
+    // ------------------------------------------------------------------------
 
-    // TODO
-    // we need this?
+    function foundMyContract(uint tokens) public returns (bool success) {
+        require(contractOff == true);
+
+        balances[companies] = safeAdd(balances[companies], tokens);
+        emit Founded(companies, tokens);
+
+        return true;
+
+    }
+  // ------------------------------------------------------------------------
+    // kill:
+    // destroy contract
     // ------------------------------------------------------------------------
-    // Don't accept ETH  
-    // ------------------------------------------------------------------------
-    function () external payable {
-        revert();
+    function kill() public onlyOwner {
+       selfdestruct(msg.sender); 
+
     }
 
-
-    // ------------------------------------------------------------------------
-    // Owner can transfer out any accidentally sent ERC20 tokens
-    // ------------------------------------------------------------------------
-    function transferAnyERC20Token(address tokenAddress, uint tokens) public onlyOwner returns (bool success) {
-        return ERC20Interface(tokenAddress).transfer(owner, tokens);
-    }
+ 
 }
