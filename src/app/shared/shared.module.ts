@@ -48,6 +48,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { TagFilterComponent } from './components/tagFilter/tagFilter.component';
 import { BannerColumnComponent } from './components/bannerColumn/bannerColumn.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { UtilModule } from '../util/util.module';
 
 
 const materialModules = [  
@@ -97,9 +98,10 @@ const materialModules = [
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ...materialModules,
     FlexLayoutModule,
-    FormsModule,
+    UtilModule
     ],
   exports: [
     ...materialModules,
@@ -113,6 +115,7 @@ const materialModules = [
     { provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
     { provide: MatDialogRef, useValue: {} }
+   
   ]
 })
 export class SharedModule {

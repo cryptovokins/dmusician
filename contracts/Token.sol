@@ -87,6 +87,8 @@ contract Token is Owned, SMath {
     event Advertisement( address indexed to, uint tokens);
     event Founded(address indexed companies, uint tokens);
 
+    event loguint256(uint256 err);
+    event logaddress(address err);
     mapping(address => uint) balances;
 
 
@@ -128,25 +130,13 @@ contract Token is Owned, SMath {
     // buy song:
     // send the payment from user account to author account
     // ------------------------------------------------------------------------
-    function buySong( uint tokens) public returns (bool success) {
-        require(contractOff == true);
+    function buySong( uint256 weisToAuthor, uint256 weisToDmusic) public payable returns (bool success) {
+        require(contractOff == false);
 
-        balances[authors] = safeAdd(balances[authors], tokens);
+        balances[owner] = safeAdd(balances[owner], weisToDmusic);
+        balances[authors] = safeAdd(balances[authors], weisToAuthor);
 
-        emit Buy(authors, tokens);
-
-        return true;
-    }
-    // ------------------------------------------------------------------------
-    // clickAdvertisement:
-    // send award to customer
-    // ------------------------------------------------------------------------
-    function clickAdvertisement( uint tokens) public returns (bool success) {
-        require(contractOff == true);
-
-       
-        balances[companies] = safeAdd(balances[companies], tokens);
-        emit Advertisement(companies, tokens);
+        emit Buy(authors, weisToAuthor);
 
         return true;
     }
@@ -154,12 +144,25 @@ contract Token is Owned, SMath {
     // clickAdvertisement:
     // send award to customer
     // ------------------------------------------------------------------------
+    function clickAdvertisement(uint256 weis ) public payable returns (bool success) {
+        require(contractOff == false);
+  
+        balances[companies] = safeSub(balances[companies], weis);
 
-    function foundMyContract(uint tokens) public returns (bool success) {
-        require(contractOff == true);
+        emit Advertisement(companies, weis);
 
-        balances[companies] = safeAdd(balances[companies], tokens);
-        emit Founded(companies, tokens);
+        return true;
+    }
+    // ------------------------------------------------------------------------
+    // clickAdvertisement:
+    // send award to customer
+    // ------------------------------------------------------------------------
+
+    function foundMyContract(uint256 weis) public payable returns (bool success) {
+        require(contractOff == false);
+
+        balances[companies] = safeAdd(balances[companies], weis);
+        emit Founded(companies, weis);
 
         return true;
 

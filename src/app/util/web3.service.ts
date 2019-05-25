@@ -22,11 +22,11 @@ export class Web3Service {
 
   };
   // Contracts in Ropsten network  
-  private contract = '0xD12a82B6D93a46e1358F69bea4A5a2aBC52eD8Bc'
+  private contract = '0xc236ba65a0ed1420bd6513f1964c8e76d0236ca2'
 
-  /* Contracts in Ganache local network
-    private contract = '0x000000000000000000000000'
-   */
+  // Contracts in Ganache local network
+  //  private contract = '0x97eB23958F756088186E85A0e78b5fF6f343c2Ca'
+   
 
   public accountsObservable = new Subject<string[]>();
 
@@ -38,11 +38,15 @@ export class Web3Service {
       await this.bootstrapWeb3();
 
     });
-    window.addEventListener('transfer', async () => {
-      console.log('incoming transfer event')
+    window.addEventListener('Buy', async () => {
+      console.log('incoming Buy event')
     });
-    window.addEventListener('TokensPurchased', async () => {
-      console.log('incoming TokensPurchased event')
+    window.addEventListener('Advertisement', async () => {
+      console.log('incoming Advertisement event')
+
+    });
+    window.addEventListener('Found', async () => {
+      console.log('incoming Advertisement event')
 
     });
   }
@@ -96,7 +100,6 @@ export class Web3Service {
       contractAbstraction.setProvider(this.web3.currentProvider);
       contractAbstraction = await contractAbstraction.at(this.contract)
 
-
       return contractAbstraction
     } catch (err) {
       console.log(err)
@@ -120,7 +123,7 @@ export class Web3Service {
         this.accounts = accs;
       }
 
-
+      return accs
       this.ready = true;
     } catch (err) {
       console.log('There was an error fetching your accounts.');
@@ -164,16 +167,6 @@ export class Web3Service {
     return this.web3.utils.toBigNumber(amount)
   }
 
-  // Listen for events emitted from the contract
-  listenForEvents() {
-    this.contracts.token.buySong({}, {
-      fromBlock: 0,
-      toBlock: 'latest',
-    }).watch(function (error, event) {
-      console.log("event triggered", event);
-
-    })
-  }
 
   // TODO 
   // get out from here. Create a dialogServices

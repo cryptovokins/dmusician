@@ -1,3 +1,17 @@
-<p>
-  home-player works!
-</p>
+<mat-card>
+  <mat-card-content>
+    <button mat-raised-button color="primary" class="action-button" (click)="play()">
+      <mat-icon>play_circle_outline</mat-icon>play
+    </button>
+    <button mat-raised-button color="secundary" class="action-button" (click)="clickAdvertisment()">
+      <mat-icon>play_circle_outline</mat-icon>clickAdvertisment
+    </button>
+    <mat-form-field>
+      <input type="text" matInput id="amount" placeholder="Amount" [(ngModel)]="foundAmount">
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="action-button" (click)="foundMyCompany()">
+      <mat-icon>monetization_on</mat-icon>Found
+    </button>
+  </mat-card-content>
+
+</mat-card>

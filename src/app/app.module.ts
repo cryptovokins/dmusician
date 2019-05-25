@@ -18,9 +18,9 @@ import { AppRoutingModule } from './appRouting.module';
     BrowserAnimationsModule,
     CommonModule,
     BrowserModule,
+    SharedModule,
     FormsModule,
     HttpClientModule,
-    SharedModule,
     AppRoutingModule
   ],
 

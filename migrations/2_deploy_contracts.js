@@ -1,4 +1,4 @@
-var token = artifacts.require("./token.sol");
+var token = artifacts.require("./Token.sol");
 
 
 const config = require('../config/environments')
