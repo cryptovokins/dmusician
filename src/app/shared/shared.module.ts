@@ -45,8 +45,9 @@ import {
 
 import { FormsModule } from '@angular/forms';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { TagFilter } from './components/tagFilter/tagFilter.component';
-import { BannerColumn } from './components/bannerColumn/bannerColumn.component';
+import { TagFilterComponent } from './components/tagFilter/tagFilter.component';
+import { BannerColumnComponent } from './components/bannerColumn/bannerColumn.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 const materialModules = [  
   MatAutocompleteModule,
@@ -88,9 +89,10 @@ const materialModules = [
 
 @NgModule({
   declarations:[
-    TagFilter,
+    TagFilterComponent,
     DialogComponent,
-    BannerColumn
+    BannerColumnComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -102,8 +104,9 @@ const materialModules = [
     ...materialModules,
     FlexLayoutModule,
     DialogComponent,
-    TagFilter,
-    BannerColumn
+    TagFilterComponent,
+    BannerColumnComponent,
+    LoadingComponent
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {}},

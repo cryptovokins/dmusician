@@ -5,7 +5,7 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
     templateUrl: './tagFilter.component.html',
     styleUrls: ['./tagFilter.component.css']
 })
-export class TagFilter {
+export class TagFilterComponent {
     private isVisible: Boolean = false;
 
     @Input()
