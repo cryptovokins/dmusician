@@ -44,8 +44,8 @@ import {
 } from '@angular/material';
 
 import { FormsModule } from '@angular/forms';
-import { DialogComponent } from '../components/dialog/dialog.component';
-import { DialogModule } from './components/dialog/dialog.module';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { TagFilter } from './components/tagFilter/tagFilter.component';
 
 const materialModules = [  
   MatAutocompleteModule,
@@ -86,24 +86,26 @@ const materialModules = [
   ]
 
 @NgModule({
-  declarations:[],
+  declarations:[
+    TagFilter,
+    DialogComponent
+  ],
   imports: [
     CommonModule,
-    materialModules,
+    ...materialModules,
     FlexLayoutModule,
     FormsModule
     ],
   exports: [
     ...materialModules,
     FlexLayoutModule,
+    DialogComponent,
+    TagFilter
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
     { provide: MatDialogRef, useValue: {} }
-  ],
-  entryComponents:[
-    DialogComponent,
   ]
 })
 export class SharedModule {
