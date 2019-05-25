@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import {
-    SongsRepoService
-} from './repositories';
 import { SwarmDataSource } from './datasources';
-import { SessionRepoService, CoversRepoService } from './repositories';
+import { SessionRepoService, SongsRepoService, CoversRepoService } from './repositories';
 
 
 @NgModule({
@@ -13,7 +9,7 @@ import { SessionRepoService, CoversRepoService } from './repositories';
     providers: [
         SessionRepoService,
         SwarmDataSource,
-        SongsRepoService
+        SongsRepoService,
         CoversRepoService
     ]
 })

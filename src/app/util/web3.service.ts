@@ -21,12 +21,12 @@ export class Web3Service {
     token: contract,
 
   };
-  // Contracts in Ropsten network  
+  // Contracts in Ropsten network
   private contract = '0xc236ba65a0ed1420bd6513f1964c8e76d0236ca2'
 
   // Contracts in Ganache local network
   //  private contract = '0x97eB23958F756088186E85A0e78b5fF6f343c2Ca'
-   
+
 
   public accountsObservable = new Subject<string[]>();
 
@@ -168,7 +168,7 @@ export class Web3Service {
   }
 
 
-  // TODO 
+  // TODO
   // get out from here. Create a dialogServices
   private openDialog(title: string, description: string, type: string) {
 
