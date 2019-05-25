@@ -12,19 +12,19 @@ export class BannerColumnComponent {
     public banners: Images[] = [
         {
             id: 0,
-            img:'/assets/test-images/mev.jpg'
+            img:'/assets/banners/ban-epiclabs.jpg'
         },
         {
             id: 1,
-            img:'/assets/test-images/Pib.jpeg'
+            img:'/assets/banners/ban-ethereum.jpg'
         },
         {
             id: 2,
-            img:'/assets/test-images/tentacle.png'
+            img:'/assets/banners/ban-swarm.jpg'
         },
         {
             id: 3,
-            img:'/assets/test-images/vikings.jpg'
+            img:'/assets/banners/ban-osw.jpg'
         }
     ]
 

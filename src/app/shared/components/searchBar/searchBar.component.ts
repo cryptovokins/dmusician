@@ -16,7 +16,7 @@ export class SearchBarComponent {
     };
 
     @Input()
-    public logo: string = 'assets/logo.jpg';
+    public logo: string = 'assets/dmusic-logo.png';
 
     @Output()
     public searchQuery: EventEmitter<string> = new EventEmitter<string>();

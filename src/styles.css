@@ -1,11 +1,231 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+:root {
+  --color-navbar: #0A2239;
+  --color-background: #132E32;
+  --color-bluedark: #1D84B5;
+  --color-bluelight: #53A2BE;
 
-  /* color: var(--color-1, #ffffff); */
+  --ad-width: 125px;
+  --ad-width-reponsive: 100px;
+}
 
-:host {
-    --color-navbar: #0A2239;
-    --color-background: #132E32;
-    --color-bluedark: #1D84B5;
-    --color-bluelight: #53A2BE;
+* {
+  box-sizing:border-box;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary,
+audio,
+canvas,
+video {
+  display: block;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -webkit-tap-highlight-color : transparent;
+  color: white;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:active,
+a:hover,
+a:focus {
+  outline: 0;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  -ms-interpolation-mode : bicubic;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 2 */
+}
+
+button,
+input {
+  line-height: normal;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+.container-total {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+.container-topbar {
+  display: flex;
+  flex: 0 0 70px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 35px;
+  width: 100vw;
+  background-color: var(--color-navbar);
+}
+
+.img-logo {
+  width: 40px;
+  height: 40px;
+}
+
+.topbar-searcher {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  padding-right: 30px;
+}
+
+.searcher {
+  align-self: center;
+}
+
+.topbar-stylemusic {
+
+}
+
+.container-app {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-background);
+  width: 100vw;
+  height: 100vh;
+  padding: 30px 50px;
+}
+
+.app-left-advert {
+  flex: 0 0 var(--ad-width);
+  background-color: blue;
+  height: 85vh;
+  margin-right: 40px;
+}
+
+.app-right-advert {
+  flex: 0 0 var(--ad-width);
+  background-color: blue;
+  height: 85vh;
+  margin-left: 40px;
+}
+
+.app-content-music {
+  background-color: red;
+  height: 85vh;
+  width: 100%;
+  padding: 25px;
+}
+
+.music-discs {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  background-color: yellow;
+}
+
+.disc {
+  width: 180px;
+  height: 180px;
+  background-color: pink;
+}
+
+.disc-space {
+  margin-left: 20px;
+}
+
+.music-list {
+
+}
+
+.music-player {
+
+}
+
+@media only screen and (max-width: 1260px) {
+  .container-topbar {
+      display: flex;
+      flex: 0 0 70px;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 35px;
+      width: 100vw;
+      background-color: var(--color-navbar);
+  }
+  
+  .container-app {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+  }
+
+  .app-left-advert {
+      flex: 0 0 var(--ad-width-reponsive);
+      background-color: blue;
+      height: 85vh;
+      margin: 0px 0px 25px 0px;
+  }
+  
+  .app-right-advert {
+      flex: 0 0 var(--ad-width-reponsive);
+      background-color: blue;
+      height: 85vh;
+      margin: 25px 0px 0px 0px;
+  }
+  
+  .app-content-music {
+      background-color: green;
+      height: 85vh;
+      padding: 25px;
+  }
+}
+
+@media only screen and (max-width: 930px) {
+  .disc {
+      width: 100%;
+      height: auto;
+      background-color: blue;
+  }
 }
