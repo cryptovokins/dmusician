@@ -1,1 +1,15 @@
-<h1>Hola mundo</h1>
+<div class="drop-down-menu">
+    <button
+    mat-raised-button
+    color="primary"
+    class="drop-down-btn"
+    (click)="showHidden()"
+    >Filter</button>
+    <ul class="drop-down-list" [ngClass]="{'visible': isVisible}">
+        <li
+        *ngFor="let itemTag of tags"
+        class="tag"
+        (click)="selectTag(itemTag)"
+        >{{itemTag}}<hr class="separator"></li>
+    </ul>
+</div>
