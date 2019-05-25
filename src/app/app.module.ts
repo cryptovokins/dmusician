@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './appRouting.module';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { AppRoutingModule } from './appRouting.module';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    CoreModule,
     AppRoutingModule
   ],
 
