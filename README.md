@@ -108,3 +108,34 @@ swarm
 https://swarm-gateways.net/bzz:/31eca8a63e996077be8d4b823728463f9575edbd89747425646edaa45e527335/
 
 
+# Music mp3
+
+world
+https://swarm-gateways.net/bzz:/b2d6ee8bd6b5b8442bebf6a499c565d00614464614a3c85f0e6df0cb54a71cbc/
+
+river
+https://swarm-gateways.net/bzz:/8f6b7c43cf5dfc87c6ba4f6a927bb68812c3280bb785577be623f6c0439aeae6/
+
+party
+https://swarm-gateways.net/bzz:/81bf37fa67315d29fc75d807fbfb67bcdcf2a4b50c597755ebd3930acc8849b4/
+
+fresh
+https://swarm-gateways.net/bzz:/6f21985324a6758033203cdeaf75699f9414b96edca0e1fb60bb4f3096698faf/
+
+start
+https://swarm-gateways.net/bzz:/c92dc6240635bef31dfe9c013778dfcad1d8405ba2fdad63af60762be81a843f/
+
+something
+https://swarm-gateways.net/bzz:/769a692c18d0ce575f98b3f1585fd7abc6409123d8168e7e806758035d901328/
+
+summer
+https://swarm-gateways.net/bzz:/75e23c1f552603019642a20b3af6832347638be81d2c975b3bcf475d21cddf6f/
+
+street
+https://swarm-gateways.net/bzz:/175dadddd5b959d4375c1d4cd368e9373110ec03b6ca72e1259c53c3131ca687/
+
+kick
+https://swarm-gateways.net/bzz:/a39c89a2f23c632a49db30492c5d6390d5ae5b4d4b0ba8c939b0899290d136d3/
+
+spirit
+https://swarm-gateways.net/bzz:/b0c639e91ded7cb7a96929d2bfb9e8587083b7e6281790c498c0842b632c1f5f/
