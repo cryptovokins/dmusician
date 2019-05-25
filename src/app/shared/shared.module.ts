@@ -49,6 +49,7 @@ import { TagFilterComponent } from './components/tagFilter/tagFilter.component';
 import { BannerColumnComponent } from './components/bannerColumn/bannerColumn.component';
 import { LoadingComponent } from './components/loading/loading.component';
 
+
 const materialModules = [  
   MatAutocompleteModule,
   MatBadgeModule,
@@ -98,7 +99,7 @@ const materialModules = [
     CommonModule,
     ...materialModules,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
     ],
   exports: [
     ...materialModules,
