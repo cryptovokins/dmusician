@@ -49,6 +49,7 @@ import { TagFilterComponent } from './components/tagFilter/tagFilter.component';
 import { BannerColumnComponent } from './components/bannerColumn/bannerColumn.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { CoversCarouselComponent } from './components/coversCarousel/coversCarousel.component';
+import { SongsListComponent } from './components/songsList/songsList.component';
 
 
 const materialModules = [  
@@ -95,7 +96,8 @@ const materialModules = [
     DialogComponent,
     BannerColumnComponent,
     LoadingComponent,
-    CoversCarouselComponent
+    CoversCarouselComponent,
+    SongsListComponent
   ],
   imports: [
     CommonModule,
@@ -110,7 +112,8 @@ const materialModules = [
     TagFilterComponent,
     BannerColumnComponent,
     LoadingComponent,
-    CoversCarouselComponent
+    CoversCarouselComponent,
+    SongsListComponent
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {}},
