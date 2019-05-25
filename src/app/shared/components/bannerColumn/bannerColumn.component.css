@@ -1,0 +1,19 @@
+:host {
+    --banner-column-img-max-height: 400px;
+    --banner-column-img-max-width: 450px;
+}
+
+.column-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.banner {
+    max-height: var(--banner-column-img-max-height);
+    max-width: var(--banner-column-img-max-width);
+    margin: 5px 0px;
+    cursor: pointer;
+}
+
