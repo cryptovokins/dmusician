@@ -45,7 +45,9 @@ import {
 
 import { FormsModule } from '@angular/forms';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { TagFilter } from './components/tagFilter/tagFilter.component';
+import { TagFilterComponent } from './components/tagFilter/tagFilter.component';
+import { BannerColumnComponent } from './components/bannerColumn/bannerColumn.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 
 const materialModules = [  
@@ -88,9 +90,10 @@ const materialModules = [
 
 @NgModule({
   declarations:[
-    TagFilter,
+    TagFilterComponent,
     DialogComponent,
-   
+    BannerColumnComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -102,7 +105,9 @@ const materialModules = [
     ...materialModules,
     FlexLayoutModule,
     DialogComponent,
-    TagFilter
+    TagFilterComponent,
+    BannerColumnComponent,
+    LoadingComponent
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {}},

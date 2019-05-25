@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
 
 @Component({
@@ -6,23 +6,12 @@ import { Component, OnInit, Inject } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'DMusic';
-  user = {
-    name: '',
-    age: ''
-  };
-  result: string = '';
-  ethdata: any;
-  accountInfo: any
-  instructor: any;
-  constructor() { }
-
-  async ngOnInit() {
-    
-  }
-
+export class AppComponent {
+  private tags = ['Rock', 'Indy', 'Pop'];
+  public title = 'DMusic';
   
- 
+  onTagFilter(tag) {
+    console.log(tag);
+  }
 }
 
