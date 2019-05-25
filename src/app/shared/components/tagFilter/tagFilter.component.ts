@@ -6,7 +6,7 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
     styleUrls: ['./tagFilter.component.css']
 })
 export class TagFilterComponent {
-    private isVisible: Boolean = false;
+    public isVisible: Boolean = false;
 
     @Input()
     public tags: string[] = [];
@@ -14,11 +14,11 @@ export class TagFilterComponent {
     @Output()
     public tagSelected: EventEmitter<String> = new EventEmitter<String>();
 
-    private showHidden() {
+    public showHidden() {
         this.isVisible = !this.isVisible;
     }
 
-    private selectTag(tag) {
+    public selectTag(tag) {
        this.tagSelected.emit(tag);
     }
 }
