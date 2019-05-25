@@ -8,7 +8,10 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from './shared/shared.module';
-
+import { RouterModule } from '@angular/router';
+import { routes } from './app.routes';
+import { LoginModule } from './login/login.module';
+import { HomePlayerModule } from './home-player/home-player.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    RouterModule.forRoot(routes),
+    LoginModule,
+    HomePlayerModule,
   ],
 
   providers: [],

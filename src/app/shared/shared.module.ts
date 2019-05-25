@@ -47,6 +47,7 @@ import { FormsModule } from '@angular/forms';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { TagFilter } from './components/tagFilter/tagFilter.component';
 
+
 const materialModules = [  
   MatAutocompleteModule,
   MatBadgeModule,
@@ -88,13 +89,14 @@ const materialModules = [
 @NgModule({
   declarations:[
     TagFilter,
-    DialogComponent
+    DialogComponent,
+   
   ],
   imports: [
     CommonModule,
     ...materialModules,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
     ],
   exports: [
     ...materialModules,
