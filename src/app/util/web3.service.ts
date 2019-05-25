@@ -22,7 +22,7 @@ export class Web3Service {
 
   };
   // Contracts in Ropsten network  
-  private contract = '0x00000000000000000000000000000'
+  private contract = '0xD12a82B6D93a46e1358F69bea4A5a2aBC52eD8Bc'
 
   /* Contracts in Ganache local network
     private contract = '0x000000000000000000000000'
