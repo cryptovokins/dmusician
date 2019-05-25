@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { resolve } from 'url';
 import { reject } from 'q';
 import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
-import { DialogComponent } from '../components/dialog/dialog.component';
+import { DialogComponent } from '../shared/components/dialog/dialog.component';
 declare let require: any;
 const Web3 = require('web3');
 
@@ -104,7 +104,7 @@ export class Web3Service {
     }
 
   }
-  
+
 
   async refreshAccounts() {
     try {
@@ -185,9 +185,9 @@ export class Web3Service {
     const dialogRef = this.dialog.open(DialogComponent, {
       data: { title: title, description: description, type: type, icon: icon, color: color }
     });
-    
+
   }
 
- 
+
 
 }

@@ -45,7 +45,7 @@ import {
 
 import { FormsModule } from '@angular/forms';
 import { DialogComponent } from '../components/dialog/dialog.component';
-import { DialogModule } from '../components/dialog/dialog.module';
+import { DialogModule } from './components/dialog/dialog.module';
 
 const materialModules = [  
   MatAutocompleteModule,
