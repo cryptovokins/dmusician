@@ -1,0 +1,45 @@
+:host {
+    --carousel-background-color: #000000;
+    --carousel-fount-color: #ffffff;
+    --carousel-img-heigh: 300px;
+    --carousel-img-width: 350px;
+    --carousel-font-size: 25px;
+    --carousel-controls-size: 40px;
+}
+
+.carousel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--carousel-background-color);
+    color: var(--carousel-fount-color);
+}
+
+.carousel-text {
+    font-size: var(--carousel-font-size);
+}
+
+.controls .material-icons {
+    font-size: var(--carousel-controls-size);
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.viewport {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-cover {
+    height: var(--carousel-img-heigh);
+    width: var(--carousel-img-width);
+    margin: 0px 5px;
+    border-radius: 4px;
+}

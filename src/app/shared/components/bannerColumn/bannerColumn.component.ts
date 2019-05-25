@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { Banner } from '../../../entities';
+import { Images } from '../../../entities';
 @Component({
     selector: 'banner-column',
     templateUrl: './bannerColumn.component.html',
@@ -9,7 +9,7 @@ import { Banner } from '../../../entities';
 export class BannerColumnComponent {
 
     @Input()
-    public banners: Banner[] = [
+    public banners: Images[] = [
         {
             id: 0,
             img:'/assets/test-images/mev.jpg'

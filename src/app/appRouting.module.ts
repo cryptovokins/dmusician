@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { HomePlayerComponent } from './home-player/home-player.component';
 
@@ -17,6 +18,7 @@ export const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule.forRoot(routes)
   ],
   exports: [ RouterModule ]
