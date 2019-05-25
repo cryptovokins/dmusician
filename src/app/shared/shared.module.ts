@@ -48,6 +48,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { TagFilterComponent } from './components/tagFilter/tagFilter.component';
 import { BannerColumnComponent } from './components/bannerColumn/bannerColumn.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { CoversCarouselComponent } from './components/coversCarousel/coversCarousel.component';
 
 const materialModules = [  
   MatAutocompleteModule,
@@ -92,7 +93,8 @@ const materialModules = [
     TagFilterComponent,
     DialogComponent,
     BannerColumnComponent,
-    LoadingComponent
+    LoadingComponent,
+    CoversCarouselComponent
   ],
   imports: [
     CommonModule,
@@ -106,7 +108,8 @@ const materialModules = [
     DialogComponent,
     TagFilterComponent,
     BannerColumnComponent,
-    LoadingComponent
+    LoadingComponent,
+    CoversCarouselComponent
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {}},
