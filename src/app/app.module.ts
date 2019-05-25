@@ -6,12 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { SharedModule } from './shared/shared.module';
-import { RouterModule } from '@angular/router';
-import { routes } from './app.routes';
-import { LoginModule } from './login/login.module';
-import { HomePlayerModule } from './home-player/home-player.module';
+import { AppRoutingModule } from './appRouting.module';
+
 
 @NgModule({
   declarations: [
@@ -24,9 +21,7 @@ import { HomePlayerModule } from './home-player/home-player.module';
     FormsModule,
     HttpClientModule,
     SharedModule,
-    RouterModule.forRoot(routes),
-    LoginModule,
-    HomePlayerModule,
+    AppRoutingModule
   ],
 
   providers: [],
