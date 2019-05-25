@@ -1,0 +1,34 @@
+:host {
+    --play-list-background-color: #000000;
+    --play-list-font-color: #ffffff;
+    --play-list-font-size: 24px;
+    --play-list-current-song: green;
+}
+
+.play-list {
+    width: 100%;
+    background-color: var(--play-list-background-color);
+    color: var(--play-list-font-color);
+    list-style-type: none;
+    font-size: var(--play-list-font-size);
+}
+
+.song {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--play-list-font-color);
+}
+
+.song.current {
+    color: var(--play-list-current-song);
+    font-weight: bold;
+}
+
+.title {
+    width: 200px;
+    padding: 0px 5px;
+}
+
+.duration {
+    width: 100px;
+}
