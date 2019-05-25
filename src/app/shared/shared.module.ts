@@ -50,6 +50,7 @@ import { BannerColumnComponent } from './components/bannerColumn/bannerColumn.co
 import { LoadingComponent } from './components/loading/loading.component';
 import { CoversCarouselComponent } from './components/coversCarousel/coversCarousel.component';
 
+
 const materialModules = [  
   MatAutocompleteModule,
   MatBadgeModule,
@@ -100,7 +101,7 @@ const materialModules = [
     CommonModule,
     ...materialModules,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
     ],
   exports: [
     ...materialModules,

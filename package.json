@@ -40,6 +40,7 @@
     "truffle-hdwallet-provider": "^1.0.8",
     "truffle-privatekey-provider": "^1.1.0",
     "tslib": "^1.9.0",
+    "uport-connect": "^1.1.11",
     "web3": "1.0.0-beta.37",
     "zone.js": "^0.8.26"
   },
