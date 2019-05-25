@@ -1,0 +1,17 @@
+<div class="carousel">
+    <div class="header">
+        <div class="title carousel-text">Music for you</div>
+        <div class="controls">
+            <span class="material-icons" (click)="onMoveLeft()">keyboard_arrow_left</span>
+            <span class="material-icons" (click)="onMoveRight()">keyboard_arrow_right</span>
+        </div>
+    </div>
+    <div class="viewport">
+        <img
+        *ngFor="let cover of covers"
+        class="img-cover"
+        src="{{cover.img}}"
+        (click)="onSelectAlbum(cover.id)"
+        >
+    </div>
+</div>

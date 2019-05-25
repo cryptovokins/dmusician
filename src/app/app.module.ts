@@ -6,8 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './appRouting.module';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { AppRoutingModule } from './appRouting.module';
     SharedModule,
     FormsModule,
     HttpClientModule,
+    CoreModule,
     AppRoutingModule
   ],
 

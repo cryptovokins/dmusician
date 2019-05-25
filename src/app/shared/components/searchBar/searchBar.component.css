@@ -1,0 +1,17 @@
+:host {
+    --search-bar-logo-width: 50px;
+    --search-bar-log-heigh: 50px;
+    --search-bar-width-input: 150px;
+}
+
+mat-toolbar.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.img-logo {
+    width: var(--search-bar-logo-width);
+    height: var(--search-bar-log-heigh);
+}
