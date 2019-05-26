@@ -90,6 +90,7 @@ select {
 
 .class-h2 {
   color: white;
+  font-size: 32px;
 }
 
 .container-total {
@@ -111,8 +112,9 @@ select {
 }
 
 .img-logo {
-  width: 40px;
-  height: 40px;
+  width: 52px;
+  height: 52px;
+  margin-top: 22px;
 }
 
 .topbar-searcher {
@@ -137,7 +139,6 @@ select {
   justify-content: space-between;
   background-color: var(--color-background);
   width: 100vw;
-  height: 120vh;
   padding: 30px 50px;
 }
 
@@ -168,6 +169,7 @@ select {
   width: 100%;
   flex-direction: row;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .disc {
@@ -197,6 +199,16 @@ select {
   color: var(--color-bluedark);
 }
 
+.mat-form-field-empty.mat-form-field-label {
+  color: white;
+}
+
+.mat-form-field-infix {
+  margin-top: 20px;
+  color: white;
+}
+
+
 @media only screen and (max-width: 1260px) {
   .container-topbar {
       display: flex;
@@ -219,6 +231,7 @@ select {
     justify-content: space-around;
   }
 
+
   .app-left-advert {
       flex: 0 0 var(--ad-width-reponsive);
       height: 85vh;
@@ -232,7 +245,7 @@ select {
   }
   
   .app-content-music {
-    background-color: var(--color-bluedark);
+    background-color: var(--color-navbar);
     height: 85vh;
     padding: 25px;
   }
