@@ -10,12 +10,20 @@ export class CoversRepoService {
     private swarmDataSource: SwarmDataSource
   ) { }
 
-  getCovers(): Images[] {
-  return this.swarmDataSource.getCoversPictures()
+  getCovers(startIndex: number, length: number): Images[] {
+   let end = startIndex + length;
+   const images = this.swarmDataSource.getCoversPictures()
         .map((url: string, index: number) => ({
             id: index,
             img: url
         }));
+    if ((startIndex > images.length) || (startIndex < 0)) {
+      return null;
+    }
+    if (end > images.length) {
+      end = images.length;
+    }
+    return images.slice(startIndex, end);
   }
 
 }
