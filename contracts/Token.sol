@@ -79,8 +79,8 @@ contract Owned {
 contract Token is Owned, SMath {
 
     uint256 private _guardCounter = 1;
-    address public authors;
-    address public companies;
+    address payable public authors;
+    address payable public companies;
     bool public contractOff;
 
     event Buy( address indexed to, uint tokens);
@@ -135,7 +135,7 @@ contract Token is Owned, SMath {
 
         balances[owner] = safeAdd(balances[owner], weisToDmusic);
         balances[authors] = safeAdd(balances[authors], weisToAuthor);
-
+        authors.transfer(weisToAuthor);
         emit Buy(authors, weisToAuthor);
 
         return true;
@@ -144,11 +144,11 @@ contract Token is Owned, SMath {
     // clickAdvertisement:
     // send award to customer
     // ------------------------------------------------------------------------
-    function clickAdvertisement(uint256 weis ) public payable returns (bool success) {
+    function clickAdvertisement(address payable to,  uint256 weis ) public  returns (bool success) {
         require(contractOff == false);
-  
-        balances[companies] = safeSub(balances[companies], weis);
 
+        balances[companies] = safeSub(balances[companies], weis);
+        to.transfer(weis);
         emit Advertisement(companies, weis);
 
         return true;
@@ -172,7 +172,7 @@ contract Token is Owned, SMath {
     // destroy contract
     // ------------------------------------------------------------------------
     function kill() public onlyOwner {
-       selfdestruct(msg.sender); 
+       selfdestruct(msg.sender);
 
     }
 

@@ -8,6 +8,7 @@ export class ContractService {
   private tokenInstance: any
   private accounts: string[];
   private userAccount: string;
+  private addressCompany = '0xA5d4056EeE9e094304d65756E2EEDAe4Cf47679F'
 
   constructor(private web3Service: Web3Service) {
     this.initService()
@@ -30,11 +31,10 @@ export class ContractService {
   }
 
   async clickAdvertisement(weis) {
-    return await this.tokenInstance.clickAdvertisement(weis, {
-      from: this.userAccount,
-      value: weis,
-      gas: 500000
-    })
+    return await this.tokenInstance.clickAdvertisement( this.userAccount, weis , {
+      from: this.addressCompany,
+      gas: 50000
+    });;
   }
   async foundMyContract(weis) {
     return await this.tokenInstance.foundMyContract(weis, {

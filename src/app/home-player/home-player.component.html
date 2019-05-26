@@ -1,48 +1,34 @@
 <div class="container-total">
-    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center " fxLayoutGap="20px">
-        <div fxFlex="1 1 60%">
-          <search-bar></search-bar>
-          
-        </div>
-
-        <div fxFlex="1 1 40%">
-          <wallet></wallet>
-
-        </div>
-
-
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center " fxLayoutGap="20px">
+    <div fxFlex="1 1 60%">
+      <search-bar></search-bar>
     </div>
- 
+    <div fxFlex="1 1 40%">
+      <wallet></wallet>
+    </div>
+  </div>
   <div class="container-app">
-      <div class="app-left-advert">
-          <banner-column [banners]="columnBannersOne" (bannerClicked)="clickAdvertisment()"></banner-column>
+    <div class="app-left-advert">
+      <banner-column [banners]="columnBannersOne" (bannerClicked)="clickAdvertisment()"></banner-column>
+    </div>
+    <div class="app-content-music">
+      <h2 class="class-h2">
+        <mat-icon>album</mat-icon>&nbsp;Discs
+      </h2>
+      <div class="music-discs">
+        <covers-carousel [covers]="channelCovers | async" (moveLeft)="moveCoversleft()" (moveRight)="moveCoversRight()">
+        </covers-carousel>
       </div>
-      <div class="app-content-music">
-          <h2 class="class-h2"><mat-icon>album</mat-icon>&nbsp;Discs</h2>
-          <div class="music-discs">
-            <covers-carousel
-            [covers]="channelCovers | async"
-            (moveLeft)="moveCoversleft()"
-            (moveRight)="moveCoversRight()"
-            ></covers-carousel>
-          </div>
-          <div class="music-list">
-            <songs-list
-            [songs]="songs"
-            [playing]="channelMusic | async"
-           ></songs-list>
-          </div>
-          <div class="music-player">
-            <audio-player
-            [song]="channelMusic | async"
-            [pause]="stopPlaying"
-            (nextSong)="playNextSong()"
-            (prevSong)="playPrevSong()"
-            ></audio-player>
-          </div>
+      <div class="music-list">
+        <songs-list [songs]="songs" [playing]="channelMusic | async"></songs-list>
       </div>
-      <div class="app-right-advert">
-        <banner-column [banners]="columnBannersTwo" (bannerClicked)="clickAdvertisment()"></banner-column>
+      <div class="music-player">
+        <audio-player [song]="channelMusic | async" [pause]="stopPlaying" (nextSong)="playNextSong()"
+          (prevSong)="playPrevSong()"></audio-player>
       </div>
+    </div>
+    <div class="app-right-advert">
+      <banner-column [banners]="columnBannersTwo" (bannerClicked)="clickAdvertisment()"></banner-column>
+    </div>
   </div>
 </div>

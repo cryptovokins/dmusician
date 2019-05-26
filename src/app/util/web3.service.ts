@@ -31,11 +31,11 @@ export class Web3Service {
   public accountsObservable = new Subject<string[]>();
 
   constructor(public dialog: MatDialog) {
-
+     this.bootstrapWeb3();
 
     window.addEventListener('load', async () => {
 
-      await this.bootstrapWeb3();
+     
 
     });
     window.addEventListener('Buy', async () => {

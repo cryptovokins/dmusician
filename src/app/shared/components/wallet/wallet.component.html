@@ -3,8 +3,10 @@
  
   <div class="wallet-card-content" >
     <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center " fxLayoutGap="20px">
-
-      <div fxFlex="1 1 70%">{{model.account}}</div>
+     
+      <div fxFlex="1 1 70%">
+        <div fxFlex></div>
+        {{model.account  | slice:0:10}}...</div>
       <div fxFlex="1 1 20%">{{model.ether}}</div>
       <div fxFlex="1 1 5%">ETH</div>
       <div fxFlex="1 1 5%"> <mat-icon  [matMenuTriggerFor]="appMenu">more_vert</mat-icon></div>
