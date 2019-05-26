@@ -159,9 +159,12 @@ select {
 }
 
 .app-content-music {
-  background-color: var(--color-bluedark);
+  background-color: var(--color-background);
   width: 100%;
   padding: 25px;
+  -webkit-box-shadow: 2px 3px 6px 1px rgba(0, 0, 0, 0.58);
+  -moz-box-shadow: 2px 3px 6px 1px rgba(0, 0, 0, 0.58);
+  box-shadow: 2px 3px 6px 1px rgba(0, 0, 0, 0.58);
 }
 
 .music-discs {

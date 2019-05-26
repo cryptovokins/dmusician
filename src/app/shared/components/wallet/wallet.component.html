@@ -1,0 +1,18 @@
+
+<div class="card">
+ 
+  <div class="wallet-card-content" >
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center " fxLayoutGap="20px">
+
+      <div fxFlex="1 1 70%">{{model.account}}</div>
+      <div fxFlex="1 1 20%">{{model.ether}}</div>
+      <div fxFlex="1 1 5%">ETH</div>
+      <div fxFlex="1 1 5%"> <mat-icon  [matMenuTriggerFor]="appMenu">more_vert</mat-icon></div>
+     
+    </div>
+  </div>
+  <mat-menu mat-menu-top-right #appMenu="matMenu" xPosition="after" yPosition="below">
+      <button mat-menu-item (click)="goEtherscan(model.link)">Watch in Etherscan</button>
+      <button mat-menu-item (click)="openDialogQr(model.account)">Share your wallet</button>
+    </mat-menu>
+  </div> 

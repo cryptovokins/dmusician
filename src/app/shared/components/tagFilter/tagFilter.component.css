@@ -55,3 +55,9 @@
 .separator {
     margin: 0;
 }
+.card {
+    margin: 10px;
+    color: var(--tag-filter-font-color);
+    background:  var(--color-navbar);
+    border:  var(--color-navbar);
+  }

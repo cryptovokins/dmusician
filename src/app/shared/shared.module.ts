@@ -53,6 +53,10 @@ import { CoversCarouselComponent } from './components/coversCarousel/coversCarou
 import { SongsListComponent } from './components/songsList/songsList.component';
 import { SearchBarComponent } from './components/searchBar/searchBar.component';
 import { AudioPlayerComponent } from './components/audioPlayer/audioPlayer.component';
+import { WalletComponent } from './components/wallet/wallet.component';
+import { DialogQrComponent } from './components/dialog-qr/dialog-qr.component';
+import { CopyClipboardDirective } from '../util/copy-clipboard.directive';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 
 const materialModules = [  
@@ -102,14 +106,19 @@ const materialModules = [
     CoversCarouselComponent,
     SongsListComponent,
     SearchBarComponent,
-    AudioPlayerComponent
+    AudioPlayerComponent,
+    WalletComponent,
+    DialogQrComponent,
+    CopyClipboardDirective
+
   ],
   imports: [
     CommonModule,
     FormsModule,
     ...materialModules,
     FlexLayoutModule,
-    UtilModule
+    UtilModule,
+    NgxQRCodeModule
     ],
   exports: [
     ...materialModules,
@@ -121,9 +130,12 @@ const materialModules = [
     CoversCarouselComponent,
     SongsListComponent,
     SearchBarComponent,
-    AudioPlayerComponent
+    AudioPlayerComponent,
+    WalletComponent,
+    CopyClipboardDirective
+
   ],
-  entryComponents:[DialogComponent],
+  entryComponents:[DialogComponent, DialogQrComponent],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
