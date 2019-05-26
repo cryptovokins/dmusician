@@ -1,4 +1,4 @@
-# DMusic
+# dmusician
 
 DApp to buy and play music in a decentralized ecosystem using Ethereum, Swarm and uPort
 
