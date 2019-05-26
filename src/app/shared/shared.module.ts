@@ -52,6 +52,7 @@ import { UtilModule } from '../util/util.module';
 import { CoversCarouselComponent } from './components/coversCarousel/coversCarousel.component';
 import { SongsListComponent } from './components/songsList/songsList.component';
 import { SearchBarComponent } from './components/searchBar/searchBar.component';
+import { AudioPlayerComponent } from './components/audioPlayer/audioPlayer.component';
 
 
 const materialModules = [  
@@ -100,7 +101,8 @@ const materialModules = [
     LoadingComponent,
     CoversCarouselComponent,
     SongsListComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    AudioPlayerComponent
   ],
   imports: [
     CommonModule,
@@ -118,7 +120,8 @@ const materialModules = [
     LoadingComponent,
     CoversCarouselComponent,
     SongsListComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    AudioPlayerComponent
   ],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {}},

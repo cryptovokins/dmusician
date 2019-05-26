@@ -16,7 +16,8 @@
            ></songs-list>
           </div>
           <div class="music-player">
-            <button mat-raised-button color="primary" class="action-button" (click)="play()">
+            <audio-player [song]="currentSong"></audio-player>
+            <!-- <button mat-raised-button color="primary" class="action-button" (click)="play()">
               <mat-icon>play_circle_outline</mat-icon>play
             </button>
             <button mat-raised-button color="secundary" class="action-button" (click)="clickAdvertisment()">
@@ -27,7 +28,7 @@
             </mat-form-field>
             <button mat-raised-button color="primary" class="action-button" (click)="foundMyCompany()">
               <mat-icon>monetization_on</mat-icon>Found
-            </button>
+            </button>-->
           </div>
       </div>
       <div class="app-right-advert">

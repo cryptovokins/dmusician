@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
       } catch (error) {
         console.log('not authorized')
       }
+    } else {
+      this.router.navigateByUrl('/home');
     }
   }
 
