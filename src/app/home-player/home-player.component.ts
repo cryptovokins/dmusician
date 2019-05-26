@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ContractService } from '../util/contract.service';
 
-import { SessionRepoService, SongsRepoService } from '../core';
-import { Song } from '../entities';
+import { SessionRepoService, SongsRepoService, CoversRepoService } from '../core';
+import { Song, Images } from '../entities';
+import { BehaviorSubject } from 'rxjs';
+
 
 @Component({
   selector: 'app-home-player',
@@ -17,17 +19,20 @@ export class HomePlayerComponent implements OnInit {
   foundAmount = 0;
   public songs: Song[] = [];
   public currentSong: Song = null;
+  public channelCovers: BehaviorSubject<Images[]> = new BehaviorSubject<Images[]>([]);
 
   constructor(
     private contractService:ContractService,
     private sessionRepo: SessionRepoService,
-    private songsRepo: SongsRepoService
+    private songsRepo: SongsRepoService,
+    private coversRepo: CoversRepoService
   ) { }
 
   ngOnInit() {
     console.log(this.sessionRepo.getId());
     this.songs = this.songsRepo.getSongs();
     this.currentSong = this.songsRepo.getCurrentSong();
+    this.channelCovers.next(this.coversRepo.getCovers(0,4));
   }
 
   play(){
