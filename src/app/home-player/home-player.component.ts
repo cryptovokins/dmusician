@@ -22,7 +22,6 @@ export class HomePlayerComponent implements OnInit {
 
   public columnBannersOne: Images[] = [];
   public columnBannersTwo: Images[] = [];
-  public channelCovers: BehaviorSubject<Images[]> = new BehaviorSubject<Images[]>([]);
 
   public stopPlaying: boolean = false;
 

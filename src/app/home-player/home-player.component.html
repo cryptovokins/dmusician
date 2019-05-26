@@ -2,7 +2,7 @@
   <search-bar></search-bar>
   <div class="container-app">
       <div class="app-left-advert">
-          <banner-column [banners]="columnBannersOne"></banner-column>
+          <banner-column [banners]="columnBannersOne" (bannerClicked)="clickAdvertisment()"></banner-column>
       </div>
       <div class="app-content-music">
           <h2 class="class-h2"><mat-icon>album</mat-icon>&nbsp;Discs</h2>
@@ -26,22 +26,10 @@
             (nextSong)="playNextSong()"
             (prevSong)="playPrevSong()"
             ></audio-player>
-            <!-- <button mat-raised-button color="primary" class="action-button" (click)="play()">
-              <mat-icon>play_circle_outline</mat-icon>play
-            </button>
-            <button mat-raised-button color="secundary" class="action-button" (click)="clickAdvertisment()">
-              <mat-icon>play_circle_outline</mat-icon>clickAdvertisment
-            </button>
-            <mat-form-field>
-              <input type="text" matInput id="amount" placeholder="Amount" [(ngModel)]="foundAmount">
-            </mat-form-field>
-            <button mat-raised-button color="primary" class="action-button" (click)="foundMyCompany()">
-              <mat-icon>monetization_on</mat-icon>Found
-            </button>-->
           </div>
       </div>
       <div class="app-right-advert">
-        <banner-column [banners]="columnBannersTwo"></banner-column>
+        <banner-column [banners]="columnBannersTwo" (bannerClicked)="clickAdvertisment()"></banner-column>
       </div>
   </div>
 </div>
