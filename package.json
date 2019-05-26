@@ -13,6 +13,9 @@
     "start:dev": "ng serve --host 0.0.0.0 --poll=2000",
     "postinstall": "node patch.js"
   },
+  "engines": {
+    "node": "11.14.0"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "7.1.0",
