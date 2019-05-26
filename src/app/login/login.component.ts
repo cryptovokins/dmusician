@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UportService } from '../util/uport.service';
 import { Router } from '@angular/router';
-import { SessionRepoService, CoversRepoService } from '../core';
+import { SessionRepoService } from '../core';
 
 @Component({
   selector: 'app-login',
