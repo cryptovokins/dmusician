@@ -4,9 +4,11 @@
     </audio>
     <div class="controls">
         <span class="material-icons">skip_previous</span>
+        &nbsp;
         <ng-container *ngIf="pause; else elseTemplate">
-            <span class="material-icons" (click)="playPause()">play_arrow</span>
+        <span class="material-icons" (click)="playPause()">play_arrow</span>
         </ng-container>
+        &nbsp;
         <ng-template #elseTemplate>
             <span class="material-icons" (click)="playPause()">pause</span>
         </ng-template>
