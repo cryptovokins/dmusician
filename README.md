@@ -46,3 +46,8 @@ Smart contract: https://ropsten.etherscan.io/address/0xc236ba65a0ed1420bd6513f19
 
 CryptoVikings
 
+# DApp URL
+
+https://dmusicicians.herokuapp.com
+
+
