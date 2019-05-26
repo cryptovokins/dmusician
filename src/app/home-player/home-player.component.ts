@@ -21,9 +21,12 @@ export class HomePlayerComponent implements OnInit {
   public songs: Song[] = [];
   public currentSong: Song = null;
   public channelCovers: BehaviorSubject<Images[]> = new BehaviorSubject<Images[]>([]);
+  public channelMusic: BehaviorSubject<Song>;
 
   public columnBannersOne: Images[] = [];
   public columnBannersTwo: Images[] = [];
+
+  public stopPlaying: boolean = false;
 
   private lengthCovers = 4;
   private indexCovers = 0;
@@ -39,14 +42,14 @@ export class HomePlayerComponent implements OnInit {
   ngOnInit() {
     console.log(this.sessionRepo.getId());
     this.songs = this.songsRepo.getSongs();
-    this.currentSong = this.songsRepo.getCurrentSong();
+    this.channelMusic = new BehaviorSubject<Song>(this.songsRepo.getCurrentSong());
     this.channelCovers.next(this.coversRepo.getCovers(this.indexCovers,this.lengthCovers));
     this.columnBannersOne = [...this.bannersRepo.getBanners(0, 4)];
     this.columnBannersTwo = [...this.bannersRepo.getBanners(4,4)];
   }
 
   play(){
-    this.contractService.buySong(this.weisToPlay)
+    return this.contractService.buySong(this.weisToPlay);
   }
   clickAdvertisment(){
     this.contractService.clickAdvertisement(this.weisToClick)
@@ -72,6 +75,39 @@ export class HomePlayerComponent implements OnInit {
     if(coversArray) {
       this.channelCovers.next(coversArray);
       this.indexCovers = provIndex;
+    }
+  }
+
+  playNextSong() {
+    let provSong = this.songsRepo.getNextSong();
+    
+    if (provSong) {
+      this.play()
+      .catch(error => {
+        console.error(error);
+        this.stopPlaying = true;
+      });
+      console.log('Song to play: ', provSong);
+      this.stopPlaying = false;
+      this.channelMusic.next(provSong)
+    } else {
+      this.stopPlaying = true;
+    }
+  }
+
+  playPrevSong() {
+    let provSong = this.songsRepo.getPrevSong();
+
+    if (provSong) {
+      this.play()
+      .catch(error => {
+        console.error(error);
+        this.stopPlaying = true;
+      });
+      this.stopPlaying = false;
+      this.channelMusic.next(provSong);
+    } else {
+      this.stopPlaying = true;
     }
   }
 }

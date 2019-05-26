@@ -21,8 +21,8 @@ export class AudioPlayerComponent implements OnInit {
     @ViewChild('player', {read: ElementRef})
     public playerElementRef: ElementRef;
 
+    @Input()
     public pause: boolean = false
-    public urlMp3: string = '';
 
     private player: HTMLElement
 
@@ -30,10 +30,6 @@ export class AudioPlayerComponent implements OnInit {
         this.player = this.playerElementRef.nativeElement;
 
         this.player.onended = this.requestNextSong.bind(this);
-
-        if (this.song) {
-            this.urlMp3 = this.song.url;
-        }
     }
 
     public requestNextSong(): void {

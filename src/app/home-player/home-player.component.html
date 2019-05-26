@@ -16,11 +16,16 @@
           <div class="music-list">
             <songs-list
             [songs]="songs"
-            [playing]="currentSong"
+            [playing]="channelMusic | async"
            ></songs-list>
           </div>
           <div class="music-player">
-            <audio-player [song]="currentSong"></audio-player>
+            <audio-player
+            [song]="channelMusic | async"
+            [pause]="stopPlaying"
+            (nextSong)="playNextSong()"
+            (prevSong)="playPrevSong()"
+            ></audio-player>
             <!-- <button mat-raised-button color="primary" class="action-button" (click)="play()">
               <mat-icon>play_circle_outline</mat-icon>play
             </button>
