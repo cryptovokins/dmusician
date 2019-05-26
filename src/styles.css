@@ -88,6 +88,10 @@ select {
   text-transform: none;
 }
 
+.class-h2 {
+  color: white;
+}
+
 .container-total {
   display: flex;
   flex-direction: column;
@@ -133,27 +137,28 @@ select {
   justify-content: space-between;
   background-color: var(--color-background);
   width: 100vw;
-  height: 100vh;
+  height: 120vh;
   padding: 30px 50px;
 }
 
 .app-left-advert {
   flex: 0 0 var(--ad-width);
-  background-color: blue;
   height: 85vh;
   margin-right: 40px;
 }
 
 .app-right-advert {
   flex: 0 0 var(--ad-width);
-  background-color: blue;
   height: 85vh;
   margin-left: 40px;
 }
 
+.banner {
+  padding: 0 0 15px 0;
+}
+
 .app-content-music {
-  background-color: red;
-  height: 85vh;
+  background-color: var(--color-bluedark);
   width: 100%;
   padding: 25px;
 }
@@ -163,7 +168,6 @@ select {
   width: 100%;
   flex-direction: row;
   justify-content: center;
-  background-color: yellow;
 }
 
 .disc {
@@ -181,7 +185,16 @@ select {
 }
 
 .music-player {
+  display: flex;
+  justify-content: center;
+}
 
+.mat-fab.mat-accent, .mat-flat-button.mat-accent, .mat-mini-fab.mat-accent, .mat-raised-button.mat-accent {
+  background-color: var(--color-bluedark);
+}
+
+.mat-button.mat-accent, .mat-icon-button.mat-accent, .mat-stroked-button.mat-accent {
+  color: var(--color-bluedark);
 }
 
 @media only screen and (max-width: 1260px) {
@@ -201,24 +214,27 @@ select {
       flex-direction: column;
   }
 
+  .column-banner {
+    display: flex;
+    justify-content: space-around;
+  }
+
   .app-left-advert {
       flex: 0 0 var(--ad-width-reponsive);
-      background-color: blue;
       height: 85vh;
       margin: 0px 0px 25px 0px;
   }
   
   .app-right-advert {
       flex: 0 0 var(--ad-width-reponsive);
-      background-color: blue;
       height: 85vh;
       margin: 25px 0px 0px 0px;
   }
   
   .app-content-music {
-      background-color: green;
-      height: 85vh;
-      padding: 25px;
+    background-color: var(--color-bluedark);
+    height: 85vh;
+    padding: 25px;
   }
 }
 
@@ -226,6 +242,5 @@ select {
   .disc {
       width: 100%;
       height: auto;
-      background-color: blue;
   }
 }

@@ -1,27 +1,3 @@
-<<<<<<< Updated upstream
-<mat-card>
-  <mat-card-content>
-    <button mat-raised-button color="primary" class="action-button" (click)="play()">
-      <mat-icon>play_circle_outline</mat-icon>play
-    </button>
-    <button mat-raised-button color="secundary" class="action-button" (click)="clickAdvertisment()">
-      <mat-icon>play_circle_outline</mat-icon>clickAdvertisment
-    </button>
-    <mat-form-field>
-      <input type="text" matInput id="amount" placeholder="Amount" [(ngModel)]="foundAmount">
-    </mat-form-field>
-    <button mat-raised-button color="primary" class="action-button" (click)="foundMyCompany()">
-      <mat-icon>monetization_on</mat-icon>Found
-    </button>
-  </mat-card-content>
-
-</mat-card>
-<search-bar></search-bar>
-<songs-list
- [songs]="songs"
- [playing]="currentSong"
-></songs-list>
-=======
 <div class="container-total">
   <search-bar></search-bar>
   <div class="container-app">
@@ -29,29 +5,29 @@
           <banner-column></banner-column>
       </div>
       <div class="app-content-music">
-          <h2>Discs</h2>
+          <h2 class="class-h2">Discs</h2>
           <div class="music-discs">
-              <div class="disc">
-                  <img src="assets/images/cover.jpg">
-              </div>
-              <div class="disc disc-space">
-                  <img src="assets/images/cover.jpg">
-              </div>
-              <div class="disc disc-space">
-                  <img src="assets/images/cover.jpg">
-              </div>
-              <div class="disc disc-space">
-                  <img src="assets/images/cover.jpg">
-              </div>
-              <div class="disc disc-space">
-                  <img src="assets/images/cover.jpg">
-              </div>    
+            <covers-carousel></covers-carousel>
           </div>
           <div class="music-list">
-
+            <songs-list
+            [songs]="songs"
+            [playing]="currentSong"
+           ></songs-list>
           </div>
           <div class="music-player">
-              
+            <button mat-raised-button color="primary" class="action-button" (click)="play()">
+              <mat-icon>play_circle_outline</mat-icon>play
+            </button>
+            <button mat-raised-button color="secundary" class="action-button" (click)="clickAdvertisment()">
+              <mat-icon>play_circle_outline</mat-icon>clickAdvertisment
+            </button>
+            <mat-form-field>
+              <input type="text" matInput id="amount" placeholder="Amount" [(ngModel)]="foundAmount">
+            </mat-form-field>
+            <button mat-raised-button color="primary" class="action-button" (click)="foundMyCompany()">
+              <mat-icon>monetization_on</mat-icon>Found
+            </button>
           </div>
       </div>
       <div class="app-right-advert">
@@ -59,4 +35,3 @@
       </div>
   </div>
 </div>
->>>>>>> Stashed changes
