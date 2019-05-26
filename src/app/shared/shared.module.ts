@@ -120,6 +120,7 @@ const materialModules = [
     SongsListComponent,
     SearchBarComponent
   ],
+  entryComponents:[DialogComponent],
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {}},
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},

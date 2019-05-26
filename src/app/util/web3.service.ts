@@ -81,7 +81,7 @@ export class Web3Service {
     // Non-dapp browsers...
     else {
       let description = 'Non-Ethereum browser detected. You should consider trying MetaMask!'
-      this.openDialog('Warning!', description, 'danger')
+      this.openDialog('Warning!', description, 'info')
       console.log(description);
     }
 
@@ -172,7 +172,7 @@ export class Web3Service {
   // get out from here. Create a dialogServices
   private openDialog(title: string, description: string, type: string) {
 
-    let icon = (type == 'danger') ? 'error' : 'notification_important'
+    let icon = (type == 'danger') ? 'error' : 'info'
     let color = (type == 'danger') ? 'warn' : 'primary'
 
     const dialogRef = this.dialog.open(DialogComponent, {
