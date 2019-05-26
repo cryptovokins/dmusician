@@ -1,6 +1,6 @@
 # DMusic
 
-DApp to buy and play music 
+DApp to buy and play music in a decentralized ecosystem using Ethereum, Swarm and uPort
 
 ## Development server start
 
