@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SwarmDataSource } from './datasources';
 import { SessionRepoService, SongsRepoService, CoversRepoService } from './repositories';
+import { BannersRepoService } from './repositories/banners.service';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { SessionRepoService, SongsRepoService, CoversRepoService } from './repos
         SessionRepoService,
         SwarmDataSource,
         SongsRepoService,
-        CoversRepoService
+        CoversRepoService,
+        BannersRepoService
     ]
 })
 export class CoreModule {}
