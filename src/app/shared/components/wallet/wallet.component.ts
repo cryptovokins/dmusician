@@ -33,26 +33,13 @@ export class WalletComponent implements OnInit {
     numberOfTokens = 0;
   
     constructor(private web3Service: Web3Service, private matSnackBar: MatSnackBar, private dialog: MatDialog) {
-      console.log('Constructor: ' + web3Service);
     }
   
     async ngOnInit() {
   
       await this.watchAccount();
-      await this.getInstance();
     }
-    async getInstance() {
-      try {
-        console.log('getInstance....')
-        this.tokenInstance = await this.web3Service.getInstanceToken()
-        if (this.tokenInstance) {
-          this.refreshTokenBalance();
-        }
-      } catch (err) {
-        console.log('Calilea Token has not been found in this account')
   
-      }
-    }
     async watchAccount() {
       this.web3Service.accountsObservable.subscribe((accounts) => {
         console.log(accounts)
@@ -75,10 +62,8 @@ export class WalletComponent implements OnInit {
   
   
     async refreshEtherBalance(account) {
-      console.log('Refreshing ETH balance');
   
       try {
-        console.log('Account', account);
         let etherBalance = await this.web3Service.getBalance(account);
         this.model.ether = etherBalance
   
@@ -88,26 +73,7 @@ export class WalletComponent implements OnInit {
       }
     }
   
-    async refreshTokenBalance() {
-      console.log('Refreshing balance');
-  
-      try {
-  
-        let tokenBalance = await this.tokenInstance.balanceOf.call(this.model.account)
-        let decimals = await this.tokenInstance.decimals.call();
-        
-        let balance = Number(tokenBalance.toString()) / (10 ** (decimals.toString()));
-        this.model.balance = balance
-        console.log('balance: ' + this.model.balance);
-        let tokenData = { title: 'Token ', cols: 1, rows: 1, value: balance, label: 'Tokens', currency: 'CAL', icon: 'assets/img/tokens/cal.png', link: 'https://ropsten.etherscan.io/token/0x23803d6ca1b654ca0a0ec607445ce1f50c0a7a3c' }
-        this.cards.push(tokenData)
-  
-      } catch (e) {
-        console.log(e);
-        this.setStatus('Error getting balance; see log.');
-      }
-    }
-  
+   
   
     setAmount(e) {
       console.log('Setting amount: ' + e.target.value);
