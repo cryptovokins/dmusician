@@ -40,6 +40,7 @@ speed-measure-plugin.json
 npm-debug.log
 yarn-error.log
 testem.log
+package-lock.json
 /typings
 
 # System Files
@@ -48,3 +49,4 @@ Thumbs.db
 
 # CUSTOM COMPONENTS BANNER
 test-images
+
