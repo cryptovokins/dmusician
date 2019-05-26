@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContractService } from '../util/contract.service';
 
 import { SessionRepoService, SongsRepoService, CoversRepoService } from '../core';
+import { BannersRepoService } from '../core/repositories/banners.service';
 import { Song, Images } from '../entities';
 import { BehaviorSubject } from 'rxjs';
 
@@ -21,6 +22,9 @@ export class HomePlayerComponent implements OnInit {
   public currentSong: Song = null;
   public channelCovers: BehaviorSubject<Images[]> = new BehaviorSubject<Images[]>([]);
 
+  public columnBannersOne: Images[] = [];
+  public columnBannersTwo: Images[] = [];
+
   private lengthCovers = 4;
   private indexCovers = 0;
 
@@ -28,7 +32,8 @@ export class HomePlayerComponent implements OnInit {
     private contractService:ContractService,
     private sessionRepo: SessionRepoService,
     private songsRepo: SongsRepoService,
-    private coversRepo: CoversRepoService
+    private coversRepo: CoversRepoService,
+    private bannersRepo: BannersRepoService
   ) { }
 
   ngOnInit() {
@@ -36,6 +41,8 @@ export class HomePlayerComponent implements OnInit {
     this.songs = this.songsRepo.getSongs();
     this.currentSong = this.songsRepo.getCurrentSong();
     this.channelCovers.next(this.coversRepo.getCovers(this.indexCovers,this.lengthCovers));
+    this.columnBannersOne = [...this.bannersRepo.getBanners(0, 4)];
+    this.columnBannersTwo = [...this.bannersRepo.getBanners(4,4)];
   }
 
   play(){
