@@ -21,6 +21,9 @@ export class HomePlayerComponent implements OnInit {
   public currentSong: Song = null;
   public channelCovers: BehaviorSubject<Images[]> = new BehaviorSubject<Images[]>([]);
 
+  private lengthCovers = 4;
+  private indexCovers = 0;
+
   constructor(
     private contractService:ContractService,
     private sessionRepo: SessionRepoService,
@@ -32,7 +35,7 @@ export class HomePlayerComponent implements OnInit {
     console.log(this.sessionRepo.getId());
     this.songs = this.songsRepo.getSongs();
     this.currentSong = this.songsRepo.getCurrentSong();
-    this.channelCovers.next(this.coversRepo.getCovers(0,4));
+    this.channelCovers.next(this.coversRepo.getCovers(this.indexCovers,this.lengthCovers));
   }
 
   play(){
@@ -43,5 +46,25 @@ export class HomePlayerComponent implements OnInit {
   }
   foundMyCompany(){
     this.contractService.foundMyContract(this.foundAmount)
+  }
+
+  moveCoversleft() {
+    let provIndex = this.indexCovers -1;
+    let coversArray = this.coversRepo.getCovers(provIndex, this.lengthCovers);
+
+    if(coversArray) {
+      this.channelCovers.next(coversArray);
+      this.indexCovers = provIndex;
+    }
+  }
+
+  moveCoversRight() {
+    let provIndex = this.indexCovers + 1;
+    let coversArray = this.coversRepo.getCovers(provIndex, this.lengthCovers);
+
+    if(coversArray) {
+      this.channelCovers.next(coversArray);
+      this.indexCovers = provIndex;
+    }
   }
 }
