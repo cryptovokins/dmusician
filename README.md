@@ -1,10 +1,10 @@
 # DMusic
 
-Dapp to buy and play music 
+DApp to buy and play music 
 
 ## Development server start
 
-yarn start
+`yarn start` or `npm run start:dev`
 
 Navigate to `http://localhost:4200/`. 
 
@@ -12,40 +12,35 @@ Navigate to `http://localhost:4200/`.
 # Requirements
 
 You need to have installed metamask in your browser. 
+
 [Metamask Chrome plugin](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=es-419)
 
-# Structure HTML
-```html
-    <div class="container">
-        <div class="container-topbar">
-            <div class="topbar-searcher">
-                SEARCHER
-            </div>
-            <div class="topbar-stylemusic">
-                DROPDOWN STYLES MUSIC
-            </div>
-        </div>
-        <div class="container-app">
-            <div class="app-left-advert">
-               LEFT AD TO SEE
-            </div>
-            <div class="app-content-music">
-                <div class="music-discs">
-                  LIST OF COVERS
-                </div>
-                <div class="music-list">
-                  MUSIC LIST 
-                </div>
-                <div class="music-player">
-                  BUTTONS MUSIC PLAYER
-                </div>
-            </div>
-            <div class="app-right-advert">
-              RIGHT AD TO SEE
-            </div>
-        </div>
-    </div>
-```
+You need a Ropsten address with ether. Use Ropsten faucet in Metamask
+
+# Architecture
+
+### Frontend:
+Angular 7.1.0
+
+Material Design 3.0.1
+
+### Backend:
+
+Solidity
+
+### Libraries
+
+uPort (login users)
+
+Swarm (deployment dapp resources: songs and pictures)
+
+### Deployment
+
+Frontend: Heroku
+
+Backend: Ethereum
+
+Smart contract: https://ropsten.etherscan.io/address/0xc236ba65a0ed1420bd6513f1964c8e76d0236ca2
 
 # Author
 
