@@ -114,7 +114,7 @@ select {
 .img-logo {
   width: 52px;
   height: 52px;
-  margin-top: 22px;
+  margin-top: 15px;
 }
 
 .topbar-searcher {
@@ -146,16 +146,22 @@ select {
   flex: 0 0 var(--ad-width);
   height: 85vh;
   margin-right: 40px;
+  background-color: white;
 }
 
 .app-right-advert {
   flex: 0 0 var(--ad-width);
   height: 85vh;
   margin-left: 40px;
+  background-color: white;
 }
 
 .banner {
   padding: 0 0 15px 0;
+  width: 120px;
+  margin-bottom: 15px;
+  padding: 20px;
+  cursor: pointer;
 }
 
 .app-content-music {
@@ -211,7 +217,6 @@ select {
   color: white;
 }
 
-
 @media only screen and (max-width: 1260px) {
   .container-topbar {
       display: flex;
@@ -234,22 +239,29 @@ select {
     justify-content: space-around;
   }
 
+  .banner {
+    padding: 0 0 15px 0;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
+    padding: 20px;
+  }
 
   .app-left-advert {
-      flex: 0 0 var(--ad-width-reponsive);
-      height: 85vh;
-      margin: 0px 0px 25px 0px;
+    flex: 0 0 var(--ad-width-reponsive);
+    height: 85vh;
+    margin: 0px 0px 25px 0px;
+    background-color: white;
   }
   
   .app-right-advert {
       flex: 0 0 var(--ad-width-reponsive);
       height: 85vh;
       margin: 25px 0px 0px 0px;
+      background-color: white;
   }
   
   .app-content-music {
-    background-color: var(--color-navbar);
-    height: 85vh;
     padding: 25px;
   }
 }

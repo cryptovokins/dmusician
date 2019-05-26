@@ -1,14 +1,14 @@
 :host {
-    --carousel-background-color: #000000;
+    --carousel-background-color: #0A2239;
     --carousel-fount-color: #ffffff;
-    --carousel-img-heigh: 300px;
-    --carousel-img-width: 350px;
+    --carousel-img-heigh: 190px;
+    --carousel-img-width: 190px;
     --carousel-font-size: 25px;
     --carousel-controls-size: 40px;
 }
 
 .carousel {
-    width: 100%;
+    width: 100vh;
     display: flex;
     flex-direction: column;
     background-color: var(--carousel-background-color);
@@ -17,6 +17,7 @@
 
 .carousel-text {
     font-size: var(--carousel-font-size);
+    padding-left: 20px;
 }
 
 .controls .material-icons {
@@ -40,6 +41,8 @@
 .img-cover {
     height: var(--carousel-img-heigh);
     width: var(--carousel-img-width);
-    margin: 0px 5px;
+    margin: 0px 5px 0px 0px;
+    padding-bottom: 25px;
+    padding-right: 15px;
     border-radius: 4px;
 }

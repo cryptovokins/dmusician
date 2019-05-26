@@ -1,9 +1,10 @@
 :host {
     --audio-player-font-color: #ffffff;
-    --audio-player-font-size: 40px;
+    --audio-player-font-size: 50px;
 }
 
 .controls .material-icons {
+    margin-top: 20px;
     color: var(--audio-player-font-color);
     font-size: var(--audio-player-font-size);
     cursor: pointer;

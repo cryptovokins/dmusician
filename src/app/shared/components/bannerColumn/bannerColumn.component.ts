@@ -32,7 +32,7 @@ export class BannerColumnComponent {
     public bannerClicked: EventEmitter<number> = new EventEmitter<number>();
 
 
-    private clickOnBanner (bannerId) {
+    public clickOnBanner (bannerId) {
         this.bannerClicked.emit(bannerId);
     }
     
