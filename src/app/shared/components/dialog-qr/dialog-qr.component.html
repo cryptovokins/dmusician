@@ -1,0 +1,23 @@
+<h2 mat-dialog-title class='dialog-bar'>Your wallet</h2>
+
+<div mat-dialog-content>
+  <div fxLayout="column" fxLayoutAlign="center center">
+
+    <ngx-qrcode [qrc-element-type]="elementType" [qrc-value]="data.wallet" [copy-clipboard]="data.wallet" (copied)="notify($event)"></ngx-qrcode>
+    <p class="small">Your Receiving Wallet Addres</p>
+    <p class="small finger">{{data.wallet}}
+      <mat-icon  class="small" [copy-clipboard]="data.wallet" (copied)="notify($event)">content_copy</mat-icon>
+    </p>
+    <div class="green">
+      <p *ngIf="!copied"></p>
+      <p class="medium"  *ngIf="copied">
+         <mat-icon  class="green">check</mat-icon>Copied!
+      </p>
+    </div>
+  </div>
+
+</div>
+<div mat-dialog-actions>
+  <div fxFlex></div>
+  <button mat-button mat-raised-button cdkFocusInitial color="{{data.color}}" mat-dialog-close>Ok</button>
+</div>
