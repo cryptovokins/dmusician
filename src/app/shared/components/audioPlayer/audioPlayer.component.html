@@ -1,0 +1,15 @@
+<div class="audio-player">
+    <audio src="{{urlMp3}}" autoplay #player>
+        Your browser does not support audio
+    </audio>
+    <div class="controls">
+        <span class="material-icons">skip_previous</span>
+        <ng-container *ngIf="pause; else elseTemplate">
+            <span class="material-icons" (click)="playPause()">play_arrow</span>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <span class="material-icons" (click)="playPause()">pause</span>
+        </ng-template>
+        <span class="material-icons">skip_next</span>
+    </div>
+</div>

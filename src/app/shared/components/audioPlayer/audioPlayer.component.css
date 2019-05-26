@@ -1,0 +1,10 @@
+:host {
+    --audio-player-font-color: #ffffff;
+    --audio-player-font-size: 40px;
+}
+
+.controls .material-icons {
+    color: var(--audio-player-font-color);
+    font-size: var(--audio-player-font-size);
+    cursor: pointer;
+}
