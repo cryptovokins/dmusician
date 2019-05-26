@@ -1,8 +1,8 @@
 :host {
-    --play-list-background-color: #000000;
+    --play-list-background-color: #132E32;
     --play-list-font-color: #ffffff;
     --play-list-font-size: 24px;
-    --play-list-current-song: green;
+    --play-list-current-song: #1DD660;
 }
 
 .play-list {
@@ -16,7 +16,8 @@
 .song {
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid var(--play-list-font-color);
+    border-bottom: 1px solid #3D575D;
+    font-size: 15px;
 }
 
 .song.current {
@@ -26,9 +27,19 @@
 
 .title {
     width: 200px;
-    padding: 0px 5px;
+    padding: 0px 8px;
 }
 
 .duration {
     width: 100px;
+    text-align: right;
+    padding-right: 15px;
+}
+
+ul.play-list {
+    margin: 0 0 20px 0;
+}
+
+li {
+    padding: 5px 0 5px 12px;
 }
