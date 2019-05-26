@@ -18,6 +18,9 @@ export class HomePlayerComponent implements OnInit {
   public currentSong: Song = null;
   public ads = [];
 
+  private lengthCovers = 4;
+  private indexCovers = 0;
+
   constructor(
     private contractService:ContractService,
     private sessionRepo: SessionRepoService,
@@ -29,6 +32,10 @@ export class HomePlayerComponent implements OnInit {
     console.log(this.sessionRepo.getId());
     this.songs = this.songsRepo.getSongs();
     this.currentSong = this.songsRepo.getCurrentSong();
+<<<<<<< HEAD
+=======
+    this.channelCovers.next(this.coversRepo.getCovers(this.indexCovers,this.lengthCovers));
+>>>>>>> af41f5055b54be50150ac5ed5539ab683b7a0352
   }
 
   play(){
@@ -45,5 +52,25 @@ export class HomePlayerComponent implements OnInit {
 
   getMeAd(startIndex: number, length: number) {
     return this.bannerRepo.getBanners(startIndex, length);
+  }
+  
+  moveCoversleft() {
+    let provIndex = this.indexCovers -1;
+    let coversArray = this.coversRepo.getCovers(provIndex, this.lengthCovers);
+
+    if(coversArray) {
+      this.channelCovers.next(coversArray);
+      this.indexCovers = provIndex;
+    }
+  }
+
+  moveCoversRight() {
+    let provIndex = this.indexCovers + 1;
+    let coversArray = this.coversRepo.getCovers(provIndex, this.lengthCovers);
+
+    if(coversArray) {
+      this.channelCovers.next(coversArray);
+      this.indexCovers = provIndex;
+    }
   }
 }
