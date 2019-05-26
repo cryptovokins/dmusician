@@ -22,7 +22,7 @@ export class ContractService {
    
     let weisToAuthor = weis * 0.9;
     let weisToDmusic = weis * 0.1;
-    await this.tokenInstance.buySong(weisToAuthor, weisToDmusic, {
+    return await this.tokenInstance.buySong(weisToAuthor, weisToDmusic, {
       from: this.userAccount,
       value: weis,
       gas: 500000
@@ -30,14 +30,14 @@ export class ContractService {
   }
 
   async clickAdvertisement(weis) {
-    await this.tokenInstance.clickAdvertisement(weis, {
+    return await this.tokenInstance.clickAdvertisement(weis, {
       from: this.userAccount,
       value: weis,
       gas: 500000
     })
   }
   async foundMyContract(weis) {
-    await this.tokenInstance.foundMyContract(weis, {
+    return await this.tokenInstance.foundMyContract(weis, {
       from: this.userAccount,
       value: weis,
       gas: 500000

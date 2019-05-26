@@ -30,7 +30,7 @@ export class SongsRepoService {
         let toPlay: Song = null;
 
         if (this.playing < this.getTotalSongs()) {
-            toPlay = this.getSongs()[this.playing++];
+            toPlay = this.getSongs()[++this.playing];
         }
 
         return toPlay;
@@ -40,7 +40,7 @@ export class SongsRepoService {
         let toPlay: Song = null;
         
         if (this.playing > 0) {
-            toPlay = this.getSongs[this.playing--];
+            toPlay = this.getSongs[--this.playing];
         }
 
         return toPlay;
