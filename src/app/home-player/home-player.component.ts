@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ContractService } from '../util/contract.service';
+import { ContractService } from '../core/repositories/contract.service';
 import { SessionRepoService, SongsRepoService, CoversRepoService } from '../core';
 import { BannersRepoService } from '../core/repositories/banners.service';
 import { Song, Images } from '../entities';
@@ -12,7 +12,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class HomePlayerComponent implements OnInit {
   private weisToPlay =  1000000000000000;
-  private weisToClick = 5000000000000000  ;
+  private weisForClick = 5000000000000000  ;
   foundAmount = 0;
   public songs: Song[] = [];
   public currentSong: Song = null;
@@ -50,7 +50,7 @@ export class HomePlayerComponent implements OnInit {
   }
 
   clickAdvertisment(){
-    this.contractService.clickAdvertisement(this.weisToClick)
+    this.contractService.clickAdvertisement(this.weisForClick)
   }
 
   foundMyCompany(){

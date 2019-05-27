@@ -46,13 +46,12 @@ contract ApproveAndCallFallBack {
 // Owned contract
 // ----------------------------------------------------------------------------
 contract Owned {
-    address public owner;
-    address public newOwner;
+    address payable  public owner;
 
     event OwnershipTransferred(address indexed _from, address indexed _to);
 
     function Constructor() public {
-        owner = msg.sender;
+    owner = 0x2912e467F43dda038bE780E09238b27a330aF5ea;
     }
 
     modifier onlyOwner {
@@ -60,15 +59,10 @@ contract Owned {
         _;
     }
 
-    function transferOwnership(address _newOwner) public onlyOwner {
-        newOwner = _newOwner;
+    function transferOwnership(address payable _newOwner) public onlyOwner {
+        owner = _newOwner;
     }
-    function acceptOwnership() public {
-        require(msg.sender == newOwner);
-        emit OwnershipTransferred (owner, newOwner);
-        owner = newOwner;
-        newOwner = address(0);
-    }
+    
 }
 
 
@@ -83,13 +77,15 @@ contract Token is Owned, SMath {
     address payable public companies;
     bool public contractOff;
 
-    event Buy( address indexed to, uint tokens);
-    event Advertisement( address indexed to, uint tokens);
-    event Founded(address indexed companies, uint tokens);
+    event Buy( address indexed to, uint256 weis);
+    event Advertisement( address indexed to, uint256 weis);
+    event Founded(address indexed companies, uint256 weis);
+    event Approval(address indexed tokenOwner, address indexed spender, uint256 weis);
 
     event loguint256(uint256 err);
     event logaddress(address err);
     mapping(address => uint) balances;
+    mapping(address => mapping(address => uint)) allowed;
 
 
      modifier nonReentrant() {
@@ -102,9 +98,11 @@ contract Token is Owned, SMath {
     // Constructor
     // ------------------------------------------------------------------------
     constructor() public Token(){
+        
         authors = 0xCc3B9382e4585c534189557fB4f3cFE85b170cEE;
         companies = 0x26d844D024020eF5D93Beb9D7bfF145645D00286;
         contractOff = false;
+     
 
     }
 
@@ -112,8 +110,8 @@ contract Token is Owned, SMath {
     // ------------------------------------------------------------------------
     // Get the token balance for account tokenOwner
     // ------------------------------------------------------------------------
-    function balanceOf(address tokenOwner) public  view returns (uint balance) {
-        return balances[tokenOwner];
+    function balanceOf(address account) public  view returns (uint balance) {
+        return balances[account];
     }
 
 
@@ -125,12 +123,32 @@ contract Token is Owned, SMath {
         return true;
     }
 
-
     // ------------------------------------------------------------------------
+    // set companies balance
+    // ------------------------------------------------------------------------
+    function setCompaniesBalance(address _companies) public payable nonReentrant  returns (bool success)  {
+        require(contractOff == false);
+        require(companies == _companies);
+        balances[companies] =  msg.value;
+ 
+        return true;
+    }
+    // ------------------------------------------------------------------------
+    // set author balance
+    // ------------------------------------------------------------------------
+    function setAuthorsBalance(address _authors) public payable nonReentrant  returns (bool success)  {
+        require(contractOff == false);
+        require(authors == _authors);
+        balances[authors] =  msg.value;
+ 
+        return true;
+    }
+
+
     // buy song:
     // send the payment from user account to author account
     // ------------------------------------------------------------------------
-    function buySong( uint256 weisToAuthor, uint256 weisToDmusic) public payable returns (bool success) {
+    function buySong( uint256 weisToAuthor, uint256 weisToDmusic) public payable nonReentrant returns (bool success) {
         require(contractOff == false);
 
         balances[owner] = safeAdd(balances[owner], weisToDmusic);
@@ -144,11 +162,13 @@ contract Token is Owned, SMath {
     // clickAdvertisement:
     // send award to customer
     // ------------------------------------------------------------------------
-    function clickAdvertisement(address payable to,  uint256 weis ) public  returns (bool success) {
+    function clickAdvertisement(address payable to,  uint256 weis ) public  nonReentrant returns (bool success) {
         require(contractOff == false);
+        require(balances[companies] > weis);
 
         balances[companies] = safeSub(balances[companies], weis);
         to.transfer(weis);
+
         emit Advertisement(companies, weis);
 
         return true;
@@ -167,7 +187,29 @@ contract Token is Owned, SMath {
         return true;
 
     }
-  // ------------------------------------------------------------------------
+
+
+    // ------------------------------------------------------------------------
+    // Token owner can approve for spender to transferFrom(...) tokens
+    // from the token owner's account
+    // ------------------------------------------------------------------------
+    function approve(address spender, uint256 weis) public   returns (bool success) {
+        allowed[msg.sender][spender] = weis;
+        emit Approval(msg.sender, spender, weis);
+        return true;
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Returns the amount of tokens approved by the owner that can be
+    // transferred to the spender's account
+    // ------------------------------------------------------------------------
+    function allowance(address owner, address spender) public  returns (uint256 remaining) {
+        return allowed[owner][spender];
+    }
+    
+    
+    // ------------------------------------------------------------------------
     // kill:
     // destroy contract
     // ------------------------------------------------------------------------

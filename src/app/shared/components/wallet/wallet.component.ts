@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { DialogQrComponent } from '../dialog-qr/dialog-qr.component';
-import { Web3Service } from '../../../util/web3.service';
+import { Web3Service } from '../../../core/repositories/web3.service';
 
 @Component({
   selector: 'wallet',

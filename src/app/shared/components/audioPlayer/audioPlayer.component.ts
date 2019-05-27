@@ -28,7 +28,7 @@ export class AudioPlayerComponent implements OnInit {
 
     ngOnInit(): void { 
         this.player = this.playerElementRef.nativeElement;
-
+        (this.player as any).pause();
         this.player.onended = this.requestNextSong.bind(this);
     }
 

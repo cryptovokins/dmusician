@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UportService } from '../util/uport.service';
+import { UportService } from '../core/repositories/uport.service';
 import { Router } from '@angular/router';
 import { SessionRepoService } from '../core';
 
