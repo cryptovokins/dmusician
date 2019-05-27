@@ -4,15 +4,15 @@ import { Subject } from 'rxjs';
 import { resolve } from 'url';
 import { reject } from 'q';
 import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
-import { DialogComponent } from '../shared/components/dialog/dialog.component';
+import { DialogComponent } from '../../shared/components/dialog/dialog.component';
 declare let require: any;
 const Web3 = require('web3');
-
-const token_json = require('../../../build/contracts/Token.json');
+const token_json = require('../../../../build/contracts/Token.json');
 declare let window: any;
 
 @Injectable()
 export class Web3Service {
+  private coinBaseAccount: string;
 
   private web3: any;
   private accounts: string[];
@@ -22,7 +22,7 @@ export class Web3Service {
 
   };
   // Contracts in Ropsten network
-  private contract = '0xc236ba65a0ed1420bd6513f1964c8e76d0236ca2'
+  private contract = '0x6bb7675b7798dd93a6b1873a9cf61f10e1cac625'
 
   // Contracts in Ganache local network
   //  private contract = '0x97eB23958F756088186E85A0e78b5fF6f343c2Ca'
@@ -32,12 +32,7 @@ export class Web3Service {
 
   constructor(public dialog: MatDialog) {
      this.bootstrapWeb3();
-
-    window.addEventListener('load', async () => {
-
-     
-
-    });
+    
     window.addEventListener('Buy', async () => {
       console.log('incoming Buy event')
     });
@@ -61,8 +56,8 @@ export class Web3Service {
         await window.ethereum.enable();
         this.web3 = window.web3
         this.web3.eth.defaultAccount = this.web3.eth.accounts[0]
-        const account = await this.web3.eth.getCoinbase()
-        console.log(`**** Account: ${account}`)
+        this.coinBaseAccount = await this.web3.eth.getCoinbase()
+        console.log(`**** Account: ${this.coinBaseAccount}`)
         // Acccounts now exposed
         await this.refreshAccounts()
 
@@ -167,7 +162,9 @@ export class Web3Service {
     return this.web3.utils.toBigNumber(amount)
   }
 
-
+  getCoinbaseAccount() {
+    return this.coinBaseAccount;
+  }
   // TODO
   // get out from here. Create a dialogServices
   private openDialog(title: string, description: string, type: string) {
