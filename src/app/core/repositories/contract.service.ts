@@ -34,11 +34,12 @@ export class ContractService {
     let weisToAuthor = weis * 0.9;
     let weisToDmusic = weis * 0.1;
     try {
-      return await this.tokenInstance.buySong(weisToAuthor, weisToDmusic, {
+      await this.tokenInstance.buySong(weisToAuthor, weisToDmusic, {
         from: this.userAccount,
         value: weis,
         gas: 500000
       });
+      await this.web3Service.refreshUserAccount(this.userAccount)
     } catch (error) {
       throw error.message
     }
