@@ -32,12 +32,14 @@ export class WalletComponent implements OnInit {
     }
     numberOfTokens = 0;
   
-    constructor(private web3Service: Web3Service, private matSnackBar: MatSnackBar, private dialog: MatDialog) {
+    constructor(private web3Service: Web3Service, private dialog: MatDialog) {
     }
   
     async ngOnInit() {
   
       await this.watchAccount();
+      this.web3Service.mainAccountBalance$.subscribe(balance => this.model.ether = balance)
+
     }
   
     async watchAccount() {
@@ -46,34 +48,11 @@ export class WalletComponent implements OnInit {
         this.accounts = accounts;
         this.model.account = accounts[0];
         this.model.link = `https://ropsten.etherscan.io/address/${accounts[0]}`;
-  
-        this.refreshEtherBalance(this.model.account)
+   
   
       });
+
     }
-    async setMaxAllowed() {
-      let maxTokenAllowed = 1000
-      const allowed = await this.tokenInstance.approve.call(this.model.account, maxTokenAllowed);
-  
-    }
-    setStatus(status) {
-      this.matSnackBar.open(status, null, { duration: 3000 });
-    }
-  
-  
-    async refreshEtherBalance(account) {
-  
-      try {
-        let etherBalance = await this.web3Service.getBalance(account);
-        this.model.ether = etherBalance
-  
-      } catch (e) {
-        console.log(e);
-        this.setStatus('Error getting balance; see log.');
-      }
-    }
-  
-   
   
     setAmount(e) {
       console.log('Setting amount: ' + e.target.value);
