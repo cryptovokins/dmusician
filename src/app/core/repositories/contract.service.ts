@@ -46,7 +46,7 @@ export class ContractService {
     }
   }
 
-  async clickAdvertisement(weis) {
+  async clickAdvertisement() {
     try {
       let weisForClick = 5000000000000000;
       await this.tokenInstance.clickAdvertisement(this.userAccount, weisForClick, {
