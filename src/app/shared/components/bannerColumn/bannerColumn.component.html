@@ -1,8 +1,6 @@
-<div class="column-banner">
-    <img
-    *ngFor="let cmpBanner of banners"
-    class="banner"
-    src="{{cmpBanner.img}}"
-    (click)="clickOnBanner(cmpBanner.id)"
-    >
-</div>
+  
+  <div class="banner-container" fxLayout="column"  fxLayout.md="row" fxLayout.sm="row"   fxLayout.xs="row"  fxLayoutAlign="center center " fxLayoutGap="20px" fxLayoutGap.md="10px"  fxLayoutGap.xs="1px">
+    <div fxFlex="1 1 25%"  fxLayoutAlign="center center "  *ngFor="let cmpBanner of banners">
+      <img class="banner" src="{{cmpBanner.img}}" (click)="clickOnBanner(cmpBanner.id)">
+    </div>
+  </div>

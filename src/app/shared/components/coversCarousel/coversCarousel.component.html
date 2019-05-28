@@ -1,4 +1,4 @@
-<div class="carousel">
+<mat-card class="carousel">
     <div class="header">
         <div class="title carousel-text">Music for you</div>
         <div class="controls">
@@ -6,12 +6,9 @@
             <span class="material-icons" (click)="onMoveRight()">keyboard_arrow_right</span>
         </div>
     </div>
-    <div class="viewport">
-        <img
-        *ngFor="let cover of covers"
-        class="img-cover"
-        src="{{cover.img}}"
-        (click)="onSelectAlbum(cover.id)"
-        >
+    <div   fxLayout="row" fxLayoutAlign="center " fxLayoutGap="20px">
+      <div fxFlex="1 1 25%"  *ngFor="let cover of covers">
+        <img class="img-cover" src="{{cover.img}}" (click)="onSelectAlbum(cover.id)">
+      </div>
     </div>
-</div>
+</mat-card>

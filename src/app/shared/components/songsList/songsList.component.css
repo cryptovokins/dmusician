@@ -17,7 +17,8 @@
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #3D575D;
-    font-size: 15px;
+    font-size: 14px;
+    margin-bottom: .5rem;
 }
 
 .song.current {
@@ -36,10 +37,15 @@
     padding-right: 15px;
 }
 
-ul.play-list {
-    margin: 0 0 20px 0;
+.play-list {
+    padding: .5rem 2rem .5rem 2rem;
 }
+ 
 
-li {
-    padding: 5px 0 5px 12px;
+
+@media only screen and (max-width: 930px) {
+    .play-list {
+        padding: .5rem 1rem 1rem 1rem;
+    }
+     
 }

@@ -1,0 +1,14 @@
+
+
+  .banner {
+   
+    padding: 20px;
+    
+  }
+
+  @media only screen and (max-width: 500px) {
+      .banner {
+          padding: 10px 5px;
+      }
+     
+  }

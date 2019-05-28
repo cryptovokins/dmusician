@@ -1,0 +1,56 @@
+ .album {
+   font-size: 1.2rem;
+   color: white;
+ }
+
+ .loadingBackground {
+   background-color: #1b1b1bb6
+ }
+
+ .container-total {
+   display: flex;
+   flex-direction: column;
+   width: 100vw;
+
+   background-color: var(--color-background);
+ }
+ .topbar {
+  
+   background-color: var(--color-navbar);
+ }
+
+  
+ .container-app {
+   padding: 30px 30px;
+ }
+
+ .app-left-advert {
+   
+   background-color: white;
+ }
+
+ .app-right-advert {
+   
+   background-color: white;
+ }
+
+ .app-content-music {
+
+   background-color: var(--color-background);
+   padding: 10px;
+   -webkit-box-shadow: 2px 3px 6px 1px rgba(0, 0, 0, 0.58);
+   -moz-box-shadow: 2px 3px 6px 1px rgba(0, 0, 0, 0.58);
+   box-shadow: 2px 3px 6px 1px rgba(0, 0, 0, 0.58);
+ }
+
+
+ @media only screen and (max-width: 1260px) {
+   .container-app {
+    
+     padding: 0;
+   }
+
+
+   
+ }
+ 

@@ -1,37 +1,51 @@
-<div class="container-total">
-  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center " fxLayoutGap="20px">
-    <div fxFlex="1 1 60%">
+<div class="container-total" [ngClass]="{loadingBackground: loading}">
+  <div fxLayout="row" class="topbar"  fxLayout.xs="column" fxLayoutAlign="center " >
+    <div fxFlex="1 1 75%" fxFlex.xs="1 1 100%">
       <search-bar></search-bar>
     </div>
-    <div fxFlex="1 1 40%">
+    <div fxFlex></div>
+    <div  fxFlex="1 1 25%" fxFlex.xs="1 1 100%"  fxLayoutAlign.fx="center ">
       <wallet></wallet>
     </div>
   </div>
   <div class="container-header">
-        <companies-balance></companies-balance>
+    <companies-balance></companies-balance>
   </div>
-  <div class="container-app">
-    <div class="app-left-advert">
-      <banner-column [banners]="columnBannersOne" (bannerClicked)="clickAdvertisment()"></banner-column>
-    </div>
-    <div class="app-content-music">
-      <h2 class="class-h2">
-        <mat-icon>album</mat-icon>&nbsp;Discs
-      </h2>
-      <div class="music-discs">
-        <covers-carousel [covers]="channelCovers | async" (moveLeft)="moveCoversleft()" (moveRight)="moveCoversRight()">
-        </covers-carousel>
-      </div>
-      <div class="music-list">
-        <songs-list [songs]="songs" [playing]="channelMusic | async"></songs-list>
-      </div>
-      <div class="music-player">
-        <audio-player [song]="channelMusic | async" [pause]="stopPlaying" (nextSong)="playNextSong()"
-          (prevSong)="playPrevSong()"></audio-player>
+  <div class="container-app" fxLayout.xl="row" fxLayout.lg="row" fxLayout="column" fxLayoutAlign="center center " fxLayoutGap="20px" fxLayoutGap.md="10px"
+    fxLayoutGap.xs="1px">
+    <div fxFlex="1 1 10%" fxLayoutAlign="center center ">
+      <div class="app-left-advert">
+        <banner-column [banners]="columnBannersOne" (bannerClicked)="clickAdvertisment()"></banner-column>
       </div>
     </div>
-    <div class="app-right-advert">
-      <banner-column [banners]="columnBannersTwo" (bannerClicked)="clickAdvertisment()"></banner-column>
+    <div fxFlex="1 1 80%" fxLayoutAlign="center center ">
+
+      <div class="app-content-music">
+
+        <div class="music-discs">
+          <covers-carousel [covers]="channelCovers | async" (moveLeft)="moveCoversleft()"
+            (moveRight)="moveCoversRight()">
+          </covers-carousel>
+        </div>
+        <div class="music-list">
+          <songs-list [songs]="songs" [playing]="channelMusic | async"></songs-list>
+        </div>
+        <div class="music-player">
+          <audio-player [song]="channelMusic | async" [pause]="stopPlaying" (nextSong)="playNextSong()"
+            (prevSong)="playPrevSong()"></audio-player>
+        </div>
+      </div>
     </div>
+    <div fxFlex="1 1 10%" fxHide.xs fxHide.sm fxHide.md  fxLayoutAlign="center center ">
+
+      <div class="app-right-advert flex-item">
+        <banner-column [banners]="columnBannersTwo" (bannerClicked)="clickAdvertisment()"></banner-column>
+      </div>
+    </div>
+
+
   </div>
+</div>
+<div *ngIf="loading">
+  <loading></loading>
 </div>

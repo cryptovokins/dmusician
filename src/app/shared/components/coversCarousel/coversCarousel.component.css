@@ -1,48 +1,61 @@
 :host {
-    --carousel-background-color: #0A2239;
-    --carousel-fount-color: #ffffff;
-    --carousel-img-heigh: 190px;
-    --carousel-img-width: 190px;
-    --carousel-font-size: 25px;
-    --carousel-controls-size: 40px;
+  --carousel-background-color: #0A2239;
+  --carousel-fount-color: #ffffff;
+  --carousel-img-heigh: 10rem;
+  --carousel-img-width: 10rem;
+  --carousel-font-size: 20px;
+  --carousel-controls-size: 40px;
+  --carousel-controls-size: 35px;
+  --carousel-controls-size-600px: 20px;
 }
 
 .carousel {
-    width: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--carousel-background-color);
-    color: var(--carousel-fount-color);
+
+  display: flex;
+  flex-direction: column;
+  background-color: var(--carousel-background-color);
+  color: var(--carousel-fount-color);
+
 }
 
 .carousel-text {
-    font-size: var(--carousel-font-size);
-    padding-left: 20px;
+  font-size: var(--carousel-font-size);
+  padding-left: 20px;
 }
 
 .controls .material-icons {
-    font-size: var(--carousel-controls-size);
-    cursor: pointer;
+  font-size: var(--carousel-controls-size);
+  cursor: pointer;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+
 }
 
 .viewport {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .img-cover {
-    height: var(--carousel-img-heigh);
-    width: var(--carousel-img-width);
-    margin: 0px 5px 0px 0px;
-    padding-bottom: 25px;
-    padding-right: 15px;
-    border-radius: 4px;
+  border-radius: 4px;
+  max-height: 15rem;
+
+}
+
+@media only screen and (max-width: 600px) {
+
+  .controls .material-icons {
+    font-size: var(--carousel-controls-size-600px);
+  }
+
+  .carousel-text {
+    font-size: var(--carousel-font-size-600px);
+    padding-left: 5px;
+  }
 }

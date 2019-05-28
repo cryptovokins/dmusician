@@ -1,13 +1,13 @@
 :host {
 
-    --loading-top: var(--loading-custom-top, 20%);
-    --loading-left-1200: var(--loading-custom-left-1200, 35%);
-    --loading-left-800: var(--loading-custom-left-800, 20%);
-    --loading-left: var(--loading-custom-left, 10%);
+    --loading-top: var(--loading-custom-top, 60%);
+    --loading-left-1200: var(--loading-custom-left-1200, 50%);
+    --loading-left-800: var(--loading-custom-left-800, 50%);
+    --loading-left: var(--loading-custom-left, 30%);
     --loading-width: var(--loading-custom-width, 500px); 
 }
 
-.loading {
+.music-loading {
     position: absolute;
     z-index: 999;
     top: var(--loading-top);
@@ -16,13 +16,13 @@
 }
 
 @media(min-width: 800px) {
-    .loading {
+    .music-loading {
         left: var(--loading-left-800);
     }
 }
 
 @media(min-width: 1200px) {
-    .loading {
+    .music-loading {
         left: var(--loading-left-1200);
     }
 }

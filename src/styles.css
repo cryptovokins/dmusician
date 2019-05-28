@@ -87,19 +87,8 @@ button,
 select {
   text-transform: none;
 }
+ 
 
-.class-h2 {
-  color: white;
-  font-size: 32px;
-}
-
-.container-total {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
-}
 
 .container-topbar {
   display: flex;
@@ -107,7 +96,7 @@ select {
   justify-content: space-between;
   align-items: center;
   padding: 0px 35px;
-  width: 100vw;
+  
   background-color: var(--color-navbar);
 }
 
@@ -129,53 +118,9 @@ select {
 .searcher {
   align-self: center;
 }
+ 
 
-.topbar-stylemusic {
 
-}
-
-.container-header {
-  background-color: var(--color-background);
-  padding: 30px 50px;
-}
-.container-app {
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--color-background);
-  width: 100vw;
-  padding: 30px 50px;
-}
-
-.app-left-advert {
-  flex: 0 0 var(--ad-width);
-  height: 85vh;
-  margin-right: 40px;
-  background-color: white;
-}
-
-.app-right-advert {
-  flex: 0 0 var(--ad-width);
-  height: 85vh;
-  margin-left: 40px;
-  background-color: white;
-}
-
-.banner {
-  padding: 0 0 15px 0;
-  width: 120px;
-  margin-bottom: 15px;
-  padding: 20px;
-  cursor: pointer;
-}
-
-.app-content-music {
-  background-color: var(--color-background);
-  width: 100%;
-  padding: 25px;
-  -webkit-box-shadow: 2px 3px 6px 1px rgba(0, 0, 0, 0.58);
-  -moz-box-shadow: 2px 3px 6px 1px rgba(0, 0, 0, 0.58);
-  box-shadow: 2px 3px 6px 1px rgba(0, 0, 0, 0.58);
-}
 
 .music-discs {
   display: flex;
@@ -195,10 +140,7 @@ select {
   margin-left: 20px;
 }
 
-.music-list {
-
-}
-
+ 
 .music-player {
   display: flex;
   justify-content: center;
@@ -221,6 +163,7 @@ select {
   color: white;
 }
 
+ 
 @media only screen and (max-width: 1260px) {
   .container-topbar {
       display: flex;
@@ -228,46 +171,9 @@ select {
       justify-content: space-between;
       align-items: center;
       padding: 0px 35px;
-      width: 100vw;
       background-color: var(--color-navbar);
   }
   
-  .container-app {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: column;
-  }
-
-  .column-banner {
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .banner {
-    padding: 0 0 15px 0;
-    width: 120px;
-    height: 120px;
-    margin-bottom: 15px;
-    padding: 20px;
-  }
-
-  .app-left-advert {
-    flex: 0 0 var(--ad-width-reponsive);
-    height: 85vh;
-    margin: 0px 0px 25px 0px;
-    background-color: white;
-  }
-  
-  .app-right-advert {
-      flex: 0 0 var(--ad-width-reponsive);
-      height: 85vh;
-      margin: 25px 0px 0px 0px;
-      background-color: white;
-  }
-  
-  .app-content-music {
-    padding: 25px;
-  }
 }
 
 @media only screen and (max-width: 930px) {

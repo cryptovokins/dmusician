@@ -24,9 +24,12 @@ export class HomePlayerComponent implements OnInit {
 
   public stopPlaying: boolean = false;
 
+  public loading: boolean = true;
+
   private lengthCovers = 4;
   private indexCovers = 0;
 
+  
   constructor(
     private contractService: ContractService,
     private sessionRepo: SessionRepoService,
@@ -43,11 +46,11 @@ export class HomePlayerComponent implements OnInit {
     this.columnBannersOne = [...this.bannersRepo.getBanners(0, 4)];
     this.columnBannersTwo = [...this.bannersRepo.getBanners(4, 4)];
     this.stopPlaying = false;
+    this.loading = false;
   }
 
   async play() {
-     return await this.contractService.buySong();
-     
+    return await this.contractService.buySong(); 
   }
 
   async clickAdvertisment() {
@@ -81,12 +84,14 @@ export class HomePlayerComponent implements OnInit {
 
   async playNextSong() {
     let provSong = this.songsRepo.getNextSong();
+    this.loading = true;
     try {
 
       if (provSong) {
         await this.play()
         console.log('Song to play: ', provSong);
         this.stopPlaying = false;
+        this.loading = false;
         this.channelMusic.next(provSong)
       }
 
@@ -97,11 +102,14 @@ export class HomePlayerComponent implements OnInit {
   }
 
   async playPrevSong() {
+
     let provSong = this.songsRepo.getPrevSong();
+    this.loading = true;
     try {
       if (provSong) {
         await this.play()
         this.stopPlaying = false;
+        this.loading = false;
         this.channelMusic.next(provSong);
       }
 
