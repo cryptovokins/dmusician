@@ -98,7 +98,7 @@ contract Token is Owned, SMath {
     // Constructor
     // ------------------------------------------------------------------------
     constructor() public Token(){
-        
+        owner = msg.sender;
         authors = 0xCc3B9382e4585c534189557fB4f3cFE85b170cEE;
         companies = 0x26d844D024020eF5D93Beb9D7bfF145645D00286;
         contractOff = false;
@@ -106,6 +106,12 @@ contract Token is Owned, SMath {
 
     }
 
+    // ------------------------------------------------------------------------
+    // Get contract balance
+    // ------------------------------------------------------------------------
+    function getBalance() public view returns (uint256) {
+        return address(this).balance;
+    }
 
     // ------------------------------------------------------------------------
     // Get the token balance for account tokenOwner
@@ -126,25 +132,16 @@ contract Token is Owned, SMath {
     // ------------------------------------------------------------------------
     // set companies balance
     // ------------------------------------------------------------------------
-    function setCompaniesBalance(address _companies) public payable nonReentrant  returns (bool success)  {
+    function setCompaniesBalance(address _companies) public payable nonReentrant onlyOwner returns (bool success)  {
         require(contractOff == false);
         require(companies == _companies);
         balances[companies] =  msg.value;
  
         return true;
     }
-    // ------------------------------------------------------------------------
-    // set author balance
-    // ------------------------------------------------------------------------
-    function setAuthorsBalance(address _authors) public payable nonReentrant  returns (bool success)  {
-        require(contractOff == false);
-        require(authors == _authors);
-        balances[authors] =  msg.value;
  
-        return true;
-    }
 
-
+    // ------------------------------------------------------------------------
     // buy song:
     // send the payment from user account to author account
     // ------------------------------------------------------------------------
@@ -158,6 +155,8 @@ contract Token is Owned, SMath {
 
         return true;
     }
+
+    
     // ------------------------------------------------------------------------
     // clickAdvertisement:
     // send award to customer
@@ -173,27 +172,13 @@ contract Token is Owned, SMath {
 
         return true;
     }
-    // ------------------------------------------------------------------------
-    // clickAdvertisement:
-    // send award to customer
-    // ------------------------------------------------------------------------
 
-    function foundMyContract(uint256 weis) public payable returns (bool success) {
-        require(contractOff == false);
-
-        balances[companies] = safeAdd(balances[companies], weis);
-        emit Founded(companies, weis);
-
-        return true;
-
-    }
 
 
     // ------------------------------------------------------------------------
-    // Token owner can approve for spender to transferFrom(...) tokens
-    // from the token owner's account
+    // owner can approve for spender to transferFrom(...)  
     // ------------------------------------------------------------------------
-    function approve(address spender, uint256 weis) public   returns (bool success) {
+    function approve(address spender, uint256 weis) public  returns (bool success) {
         allowed[msg.sender][spender] = weis;
         emit Approval(msg.sender, spender, weis);
         return true;
@@ -204,7 +189,7 @@ contract Token is Owned, SMath {
     // Returns the amount of tokens approved by the owner that can be
     // transferred to the spender's account
     // ------------------------------------------------------------------------
-    function allowance(address owner, address spender) public  returns (uint256 remaining) {
+    function allowance(address owner, address spender) public view returns (uint256 remaining) {
         return allowed[owner][spender];
     }
     

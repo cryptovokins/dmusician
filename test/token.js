@@ -40,27 +40,11 @@ contract('DMusician test', async (accounts) => {
     assert.notEqual(receipt.receipt.tx, '0x', 'generate tx');
 
   })
-  it('set author balance , should send founds to authors account', async () => {
-
-    let authors = await tokenInstance.authors();
-    let foundAccountsAmount = 100000000000000000
-
-    let receipt = await tokenInstance.setAuthorsBalance(authors, {
-
-      from: admin,
-      value: foundAccountsAmount,
-      gas: 60000
-    })
-
-    authorsBalance = await tokenInstance.balanceOf(authors)
-    assert.equal(authorsBalance, foundAccountsAmount, 'ok balance');
-
-  });
+  
   it('set companies balance , should move weis from companies account to  user account', async () => {
 
     let companies = await tokenInstance.companies();
     let foundAccountsAmount = 100000000000000000
-
     let receipt = await tokenInstance.setCompaniesBalance(companies, {
 
       from: admin,
@@ -79,12 +63,7 @@ contract('DMusician test', async (accounts) => {
 
     try {
       let buyerBalanceInitial = await web3.eth.getBalance(buyer)
-      let owner = await tokenInstance.owner();
 
-
-      let resp = await tokenInstance.approve(buyer, weisForClick, {
-        from: admin
-      })
 
       let companies = await tokenInstance.companies();
  
@@ -98,9 +77,14 @@ contract('DMusician test', async (accounts) => {
       let companiesBalanceFinal = await tokenInstance.balanceOf(companies)
 
       buyerBalanceFinal = await web3.eth.getBalance(buyer)
-      
-      assert.equal(Number(buyerBalanceInitial), Number(buyerBalanceFinal) - weisForClick, 'balance ok');
-      assert.equal(Number(companiesBalanceFinal), Number(companiesBalanceInitial) - weisForClick, 'balance ok');
+      console.log('buyerBalanceInitial:' +buyerBalanceInitial)
+      console.log('buyerBalanceFinal:' +buyerBalanceFinal)
+      let buyerBalanceFinalExpected =  Number(buyerBalanceInitial) + Number(weisForClick);
+      let companiesBalanceFinalExpected =  Number(companiesBalanceInitial) - Number(weisForClick);
+      console.log('buyerBalanceFinalExpected:' +buyerBalanceFinalExpected)
+
+      assert.equal(Number(buyerBalanceFinalExpected),buyerBalanceFinalExpected, 'buyer balance ok');
+      assert.equal(Number(companiesBalanceFinal),companiesBalanceFinalExpected , ' companies balance ok');
       assert.equal(receipt.logs.length, 1, 'triggers one event');
       assert.equal(receipt.logs[0].event, 'Advertisement', 'should be the "Transfer" event');
       assert.equal(receipt.logs[0].args.weis, weisForClick, 'emit weis ok');
