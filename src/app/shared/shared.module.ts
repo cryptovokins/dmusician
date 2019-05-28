@@ -57,6 +57,7 @@ import { WalletComponent } from './components/wallet/wallet.component';
 import { DialogQrComponent } from './components/dialog-qr/dialog-qr.component';
 import { CopyClipboardDirective } from '../util/copy-clipboard.directive';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { CompaniesBalanceComponent } from './components/companies-balance/companies-balance.component';
 
 
 const materialModules = [  
@@ -109,7 +110,8 @@ const materialModules = [
     AudioPlayerComponent,
     WalletComponent,
     DialogQrComponent,
-    CopyClipboardDirective
+    CopyClipboardDirective,
+    CompaniesBalanceComponent
 
   ],
   imports: [
@@ -132,7 +134,8 @@ const materialModules = [
     SearchBarComponent,
     AudioPlayerComponent,
     WalletComponent,
-    CopyClipboardDirective
+    CopyClipboardDirective,
+    CompaniesBalanceComponent
 
   ],
   entryComponents:[DialogComponent, DialogQrComponent],

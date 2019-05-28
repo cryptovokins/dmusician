@@ -1,0 +1,27 @@
+<mat-card class="card" *ngIf="admin">
+  <mat-card-header>
+    <mat-card-title>
+      Set Companies Balance
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div fxLayout="column">
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
+        <div fxFlex="1 1">
+          <mat-form-field>
+            <input type="text" matInput id="balance" placeholder="amount" [(ngModel)]="balance">
+          </mat-form-field>
+        </div>
+      </div>
+      <p>Companies Balance in contract: {{companiesBalance}}</p>
+    </div>
+  </mat-card-content>
+  <mat-card-footer>
+    <mat-card-actions>
+      <div fxFlex></div>
+      <button mat-raised-button id="send" color="primary" class="action-button" (click)="setCompaniesBalance()">
+        <mat-icon>monetization_on</mat-icon>Found
+      </button>
+    </mat-card-actions>
+  </mat-card-footer>
+</mat-card>

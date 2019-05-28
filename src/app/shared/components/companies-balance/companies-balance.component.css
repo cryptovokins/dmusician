@@ -1,0 +1,25 @@
+ .card {
+   padding: 1rem;
+   color: white;
+   border-color: #2c6872;
+   background-color: #3a6970;
+   -webkit-box-shadow: 2px 3px 6px 1px rgba(0, 0, 0, 0.58);
+   -moz-box-shadow: 2px 3px 6px 1px rgba(0, 0, 0, 0.58);
+   box-shadow: 2px 3px 6px 1px rgba(0, 0, 0, 0.58);
+ }
+
+ ::ng-deep .mat-focused .mat-form-field-label {
+
+   color: whitesmoke !important;
+ }
+
+ ::ng-deep.mat-form-field-underline {
+   /*change color of underline*/
+   background-color: white !important;
+ }
+
+ ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: whitesmoke !important;
+   ;
+ }

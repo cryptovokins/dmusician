@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Web3Service } from './web3.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,18 +9,24 @@ export class ContractService {
   private tokenInstance: any
   private accounts: string[];
   private userAccount: string;
-  private addressCompany = '0x2912e467F43dda038bE780E09238b27a330aF5ea'
   private owner: string;
+  admin$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  companiesBalance$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   constructor(private web3Service: Web3Service) {
     this.initService()
+   
   }
   private async  initService() {
     this.tokenInstance = await this.web3Service.getInstanceToken();
     this.accounts = await this.web3Service.refreshAccounts();
-    console
+    
     this.userAccount = this.accounts[0]
     this.owner =  await this.tokenInstance.owner()
     console.log('owner:'+this.owner)
+    let admin = (this.owner ==  this.userAccount) ? true : false;
+    this.admin$.next(admin)
+
+    this.getCompaniesBalance()
   }
 
   async buySong(weis) {
@@ -33,32 +40,45 @@ export class ContractService {
         gas: 500000
       });
     } catch (error) {
-      console.log(error)
+      throw error.message
     }
   }
 
   async clickAdvertisement(weis) {
     try {
-
-      
-      return await this.tokenInstance.clickAdvertisement(this.userAccount, weis, {
-        from: this.owner,
+      await this.tokenInstance.clickAdvertisement(this.userAccount, weis, {
+        from: this.userAccount,
         gas: 50000
       })
+
+      this.getCompaniesBalance()  
+      await this.web3Service.refreshUserAccount(this.userAccount)
     } catch (error) {
-      console.log(error)
+     throw error.message
     }
   }
-  async foundMyContract(weis) {
+  async setCompaniesBalance(weis) {
     try {
-      return await this.tokenInstance.foundMyContract(weis, {
+      let companies = await this.tokenInstance.companies();
+      console.log(weis)
+      await this.tokenInstance.setCompaniesBalance(companies, {
         from: this.userAccount,
         value: weis,
-        gas: 500000
+        gas: 70000
       })
+
+     this.getCompaniesBalance()  
     } catch (error) {
-      console.log(error)
+      throw error
     }
   }
+  async getCompaniesBalance(){
+    this.tokenInstance = await this.web3Service.getInstanceToken();
+    let companies = await this.tokenInstance.companies();
+    let balance = await this.tokenInstance.balanceOf(companies)
+    this.companiesBalance$.next(balance)
+  }
+
+  
 }
 

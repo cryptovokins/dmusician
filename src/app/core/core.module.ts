@@ -11,12 +11,12 @@ import { ContractService } from './repositories/contract.service';
 @NgModule({
     imports: [ CommonModule ],
     providers: [
+        Web3Service,
         SessionRepoService,
         SwarmDataSource,
         SongsRepoService,
         CoversRepoService,
         BannersRepoService,
-        Web3Service,
         UportService,
         ContractService
     ]
