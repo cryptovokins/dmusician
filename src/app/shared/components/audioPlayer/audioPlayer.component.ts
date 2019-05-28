@@ -22,13 +22,12 @@ export class AudioPlayerComponent implements OnInit {
     public playerElementRef: ElementRef;
 
     @Input()
-    public pause: boolean = false
+    public pause: boolean = true
 
     private player: HTMLElement
 
     ngOnInit(): void { 
         this.player = this.playerElementRef.nativeElement;
-        (this.player as any).pause();
         this.player.onended = this.requestNextSong.bind(this);
     }
 
