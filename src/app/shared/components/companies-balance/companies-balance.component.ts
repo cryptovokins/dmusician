@@ -9,7 +9,7 @@ import { ContractService } from '../../../core/repositories/contract.service';
 export class CompaniesBalanceComponent implements OnInit , OnDestroy{
   balance: number
   companiesBalance: number
-  private admin: boolean;
+  admin: boolean;
   constructor(private contractService: ContractService) {
      
   }
