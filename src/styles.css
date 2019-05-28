@@ -134,6 +134,10 @@ select {
 
 }
 
+.container-header {
+  background-color: var(--color-background);
+  padding: 30px 50px;
+}
 .container-app {
   display: flex;
   justify-content: space-between;

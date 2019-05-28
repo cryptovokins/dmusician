@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ContractService } from '../util/contract.service';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { ContractService } from '../core/repositories/contract.service';
 import { SessionRepoService, SongsRepoService, CoversRepoService } from '../core';
 import { BannersRepoService } from '../core/repositories/banners.service';
 import { Song, Images } from '../entities';
@@ -11,8 +11,8 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./home-player.component.css']
 })
 export class HomePlayerComponent implements OnInit {
-  private weisToPlay =  1000000000000000;
-  private weisToClick = 5000000000000000  ;
+  private weisToPlay = 1000000000000000;
+  private weisForClick = 5000000000000000;
   foundAmount = 0;
   public songs: Song[] = [];
   public currentSong: Song = null;
@@ -29,7 +29,7 @@ export class HomePlayerComponent implements OnInit {
   private indexCovers = 0;
 
   constructor(
-    private contractService:ContractService,
+    private contractService: ContractService,
     private sessionRepo: SessionRepoService,
     private songsRepo: SongsRepoService,
     private coversRepo: CoversRepoService,
@@ -40,28 +40,31 @@ export class HomePlayerComponent implements OnInit {
     console.log(this.sessionRepo.getId());
     this.songs = this.songsRepo.getSongs();
     this.channelMusic = new BehaviorSubject<Song>(this.songsRepo.getCurrentSong());
-    this.channelCovers.next(this.coversRepo.getCovers(this.indexCovers,this.lengthCovers));
+    this.channelCovers.next(this.coversRepo.getCovers(this.indexCovers, this.lengthCovers));
     this.columnBannersOne = [...this.bannersRepo.getBanners(0, 4)];
-    this.columnBannersTwo = [...this.bannersRepo.getBanners(4,4)];
+    this.columnBannersTwo = [...this.bannersRepo.getBanners(4, 4)];
+    this.stopPlaying = false;
   }
 
-  play(){
-    return this.contractService.buySong(this.weisToPlay);
+  async play() {
+     return await this.contractService.buySong(this.weisToPlay);
+     
   }
 
-  clickAdvertisment(){
-    this.contractService.clickAdvertisement(this.weisToClick)
+  async clickAdvertisment() {
+    try {
+      await this.contractService.clickAdvertisement(this.weisForClick)
+
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  foundMyCompany(){
-    this.contractService.foundMyContract(this.foundAmount)
-  }
-  
   moveCoversleft() {
-    let provIndex = this.indexCovers -1;
+    let provIndex = this.indexCovers - 1;
     let coversArray = this.coversRepo.getCovers(provIndex, this.lengthCovers);
 
-    if(coversArray) {
+    if (coversArray) {
       this.channelCovers.next(coversArray);
       this.indexCovers = provIndex;
     }
@@ -71,42 +74,43 @@ export class HomePlayerComponent implements OnInit {
     let provIndex = this.indexCovers + 1;
     let coversArray = this.coversRepo.getCovers(provIndex, this.lengthCovers);
 
-    if(coversArray) {
+    if (coversArray) {
       this.channelCovers.next(coversArray);
       this.indexCovers = provIndex;
     }
   }
 
-  playNextSong() {
+  async playNextSong() {
     let provSong = this.songsRepo.getNextSong();
-    
-    if (provSong) {
-      this.play()
-      .catch(error => {
-        console.error(error);
-        this.stopPlaying = true;
-      });
-      console.log('Song to play: ', provSong);
-      this.stopPlaying = false;
-      this.channelMusic.next(provSong)
-    } else {
+    try {
+
+      if (provSong) {
+        await this.play()
+        console.log('Song to play: ', provSong);
+        this.stopPlaying = false;
+        this.channelMusic.next(provSong)
+      }
+
+    } catch (error) {
+      console.error(error);
       this.stopPlaying = true;
     }
   }
 
-  playPrevSong() {
+  async playPrevSong() {
     let provSong = this.songsRepo.getPrevSong();
+    try {
+      if (provSong) {
+        await this.play()
+        this.stopPlaying = false;
+        this.channelMusic.next(provSong);
+      }
 
-    if (provSong) {
-      this.play()
-      .catch(error => {
-        console.error(error);
-        this.stopPlaying = true;
-      });
-      this.stopPlaying = false;
-      this.channelMusic.next(provSong);
-    } else {
+    } catch (error) {
+      console.error(error);
       this.stopPlaying = true;
     }
   }
+
+   
 }
