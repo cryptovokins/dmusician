@@ -22,13 +22,14 @@ export class Web3Service {
 
   };
   // Contracts in Ropsten network
-  private contract = '0x6bb7675b7798dd93a6b1873a9cf61f10e1cac625'
+  private contract = '0xb1cb110dd21a4f4c63d135fe2a8e43585cf39131'
 
   // Contracts in Ganache local network
   //  private contract = '0x97eB23958F756088186E85A0e78b5fF6f343c2Ca'
 
 
   public accountsObservable = new Subject<string[]>();
+  public mainAccountBalance$ = new Subject<number>();
 
   constructor(public dialog: MatDialog) {
      this.bootstrapWeb3();
@@ -111,11 +112,13 @@ export class Web3Service {
         console.warn('Couldn\'t get any accounts! Make sure your Ethereum client is configured correctly.');
         return false;
       }
-      if (!this.accounts || this.accounts.length !== accs.length || this.accounts[0] !== accs[0]) {
+      if (!this.accounts || this.accounts.length !== accs.length ) {
         console.log('accs')
         console.log(accs)
         this.accountsObservable.next(accs);
         this.accounts = accs;
+        let balance = await this.getBalance(accs[0])
+        this.mainAccountBalance$.next(balance)
       }
 
       return accs
@@ -126,6 +129,11 @@ export class Web3Service {
 
   }
 
+  async refreshUserAccount(account){
+    let balance = await this.getBalance(account)
+    this.mainAccountBalance$.next(balance)
+
+  }
   async getBalance(address) {
     console.log('getBalance...' + address)
 
