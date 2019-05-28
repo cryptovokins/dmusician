@@ -11,8 +11,7 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./home-player.component.css']
 })
 export class HomePlayerComponent implements OnInit {
-  private weisToPlay = 1000000000000000;
-  private weisForClick = 5000000000000000;
+
   foundAmount = 0;
   public songs: Song[] = [];
   public currentSong: Song = null;
@@ -47,13 +46,13 @@ export class HomePlayerComponent implements OnInit {
   }
 
   async play() {
-     return await this.contractService.buySong(this.weisToPlay);
+     return await this.contractService.buySong();
      
   }
 
   async clickAdvertisment() {
     try {
-      await this.contractService.clickAdvertisement(this.weisForClick)
+      await this.contractService.clickAdvertisement()
 
     } catch (error) {
       console.log(error)

@@ -29,14 +29,15 @@ export class ContractService {
     this.getCompaniesBalance()
   }
 
-  async buySong(weis) {
-
-    let weisToAuthor = weis * 0.9;
-    let weisToDmusic = weis * 0.1;
+  async buySong() {
+    let weisToPlay =   1000000000000000;
+   
+    let weisToAuthor = weisToPlay * 0.9;
+    let weisToDmusic = weisToPlay * 0.1;
     try {
       await this.tokenInstance.buySong(weisToAuthor, weisToDmusic, {
         from: this.userAccount,
-        value: weis,
+        value: weisToPlay,
         gas: 500000
       });
       await this.web3Service.refreshUserAccount(this.userAccount)
@@ -47,7 +48,8 @@ export class ContractService {
 
   async clickAdvertisement(weis) {
     try {
-      await this.tokenInstance.clickAdvertisement(this.userAccount, weis, {
+      let weisForClick = 5000000000000000;
+      await this.tokenInstance.clickAdvertisement(this.userAccount, weisForClick, {
         from: this.userAccount,
         gas: 50000
       })
