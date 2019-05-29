@@ -2,12 +2,14 @@
 <div class="card">
  
   <div class="wallet-card-content" >
-    <div fxLayout="row"  fxLayoutAlign="center " fxLayoutGap="20px">
-        <div fxFlex></div>
-        <div fxFlex="1 1">{{model.account  | slice:0:10}}...</div>
-      <div fxFlex="1 1">{{model.ether | number: '1.6'}} ETH</div>
-     
-      <div fxFlex="1 1 10%"> <mat-icon  [matMenuTriggerFor]="appMenu">more_vert</mat-icon></div>
+    <div fxLayout="row"  fxLayoutAlign="center end" fxLayoutGap="10px" >
+  
+        <div fxFlex="1 1 30%">
+          <img class="avatar" [src]="avatar" [matMenuTriggerFor]="appMenu"> 
+        </div>
+      <div fxFlex="1 1 60%">{{model.ether | number: '1.6'}} </div>
+      <div fxFlex="1 1 10%" class="currency">ETH</div>
+      
      
     </div>
   </div>

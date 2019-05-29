@@ -12,14 +12,13 @@ export class UportService {
   constructor() { }
   async request() {
      
-    
+  
     this.uport.requestDisclosure({
       requested: ["name", "phone", "country"]
     } )
 
     const res = await this.uport.onResponse('disclosureReq') 
-     
-    const did = res.payload.did
+
     const json = JSON.stringify(res.payload)
     console.log(json)
     return json;

@@ -25,7 +25,9 @@
               "src/assets/fonts/material-icons/material-icons.css",
               "./node_modules/spectre.css/dist/spectre.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/blockies.min.js"
+            ]
           },
           "configurations": {
             "production": {

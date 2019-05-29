@@ -1,26 +1,19 @@
-
-:root {
-    --color-navbar: #0A2239;
-    --color-background: #132E32;
-    --color-bluedark: #1D84B5;
-    --color-bluelight: #53A2BE;
-  
-    --ad-width: 125px;
-    --ad-width-reponsive: 100px;
-  }
 .wallet-card-content {
-    margin-top: 1.3rem;
-    font-weight: bold;
+  margin-top: 1.3rem;
+  font-weight: bold;
+
+}
+
+.card {
+  margin: 10px;
+  color: white;
+  background: var(--color-navbar);
+  border: var(--color-navbar);
+}
+.currency {
+  font-size: 0.4rem;
+}
+.avatar {
+  border-radius: 50%;
   
-  }
-  .card {
-    margin: 10px;
-    color: white;
-    background:  var(--color-navbar);
-    border:  var(--color-navbar);
-  }
-  
-  .walletIcon {
-    width: 1.8rem;
-  }
-  
+}
