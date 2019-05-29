@@ -6,7 +6,7 @@
 }
 
 .play-list {
-    width: 100%;
+   
     background-color: var(--play-list-background-color);
     color: var(--play-list-font-color);
     list-style-type: none;
@@ -27,7 +27,7 @@
 }
 
 .title {
-    width: 200px;
+  
     padding: 0px 8px;
 }
 

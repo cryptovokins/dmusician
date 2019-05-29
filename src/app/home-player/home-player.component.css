@@ -10,27 +10,29 @@
  .container-total {
    display: flex;
    flex-direction: column;
-   width: 100vw;
+
 
    background-color: var(--color-background);
  }
+
  .topbar {
-  
+
    background-color: var(--color-navbar);
  }
 
-  
+
  .container-app {
    padding: 30px 30px;
+   background-color: var(--color-background);
  }
 
  .app-left-advert {
-   
+
    background-color: white;
  }
 
  .app-right-advert {
-   
+
    background-color: white;
  }
 
@@ -46,11 +48,10 @@
 
  @media only screen and (max-width: 1260px) {
    .container-app {
-    
+
      padding: 0;
    }
 
 
-   
+
  }
- 

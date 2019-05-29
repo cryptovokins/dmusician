@@ -1,8 +1,8 @@
 :host {
   --carousel-background-color: #0A2239;
   --carousel-fount-color: #ffffff;
-  --carousel-img-heigh: 10rem;
-  --carousel-img-width: 10rem;
+  --carousel-img-heigh: 8rem;
+  --carousel-img-width: 8rem;
   --carousel-font-size: 20px;
   --carousel-controls-size: 40px;
   --carousel-controls-size: 35px;
@@ -44,7 +44,7 @@
 
 .img-cover {
   border-radius: 4px;
-  max-height: 15rem;
+
 
 }
 

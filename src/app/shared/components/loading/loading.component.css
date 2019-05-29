@@ -1,28 +1,14 @@
-:host {
+ .music-loading {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 110%;
+   background-color: #0000007a
+ }
 
-    --loading-top: var(--loading-custom-top, 60%);
-    --loading-left-1200: var(--loading-custom-left-1200, 50%);
-    --loading-left-800: var(--loading-custom-left-800, 50%);
-    --loading-left: var(--loading-custom-left, 30%);
-    --loading-width: var(--loading-custom-width, 500px); 
-}
 
-.music-loading {
-    position: absolute;
-    z-index: 999;
-    top: var(--loading-top);
-    left: var(--loading-left);
-    width: var(--loading-width);
-}
-
-@media(min-width: 800px) {
-    .music-loading {
-        left: var(--loading-left-800);
-    }
-}
-
-@media(min-width: 1200px) {
-    .music-loading {
-        left: var(--loading-left-1200);
-    }
-}
+ .spin {
+     text-align: center;
+ }
+ 

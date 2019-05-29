@@ -55,7 +55,7 @@ a:focus {
 }
 
 img {
-  max-width: 100%;
+  max-width: 95%;
   height: auto;
   -ms-interpolation-mode : bicubic;
 }
@@ -88,16 +88,8 @@ select {
   text-transform: none;
 }
  
-
-
-.container-topbar {
-  display: flex;
-  flex: 0 0 70px;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 35px;
-  
-  background-color: var(--color-navbar);
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #00d640!important;
 }
 
 .img-logo {
@@ -106,10 +98,7 @@ select {
   margin-top: 15px;
 }
 
-.topbar-searcher {
-  display: flex;
-  justify-content: space-between;
-}
+ 
 
 .logo {
   padding-right: 30px;
@@ -124,15 +113,14 @@ select {
 
 .music-discs {
   display: flex;
-  width: 100%;
+  
   flex-direction: row;
   justify-content: center;
   margin-bottom: 20px;
 }
 
 .disc {
-  width: 180px;
-  height: 180px;
+ 
   background-color: pink;
 }
 
@@ -164,21 +152,4 @@ select {
 }
 
  
-@media only screen and (max-width: 1260px) {
-  .container-topbar {
-      display: flex;
-      flex: 0 0 70px;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0px 35px;
-      background-color: var(--color-navbar);
-  }
-  
-}
-
-@media only screen and (max-width: 930px) {
-  .disc {
-      width: 100%;
-      height: auto;
-  }
-}
+ 

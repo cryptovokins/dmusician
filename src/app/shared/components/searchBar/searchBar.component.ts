@@ -15,8 +15,6 @@ export class SearchBarComponent {
         tags: ['Rock', 'Pop', 'Indy', 'Classic']
     };
 
-    @Input()
-    public logo: string = 'assets/dmusic-logo.png';
 
     @Output()
     public searchQuery: EventEmitter<string> = new EventEmitter<string>();

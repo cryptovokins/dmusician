@@ -29,7 +29,8 @@ export class HomePlayerComponent implements OnInit {
   private lengthCovers = 4;
   private indexCovers = 0;
 
-  
+ 
+  public logo: string = 'assets/dmusic-logo.png';
   constructor(
     private contractService: ContractService,
     private sessionRepo: SessionRepoService,
