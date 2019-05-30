@@ -99,6 +99,7 @@ export class HomePlayerComponent implements OnInit {
     } catch (error) {
       console.error(error);
       this.stopPlaying = true;
+      this.loading = false;
     }
   }
 
@@ -117,6 +118,7 @@ export class HomePlayerComponent implements OnInit {
     } catch (error) {
       console.error(error);
       this.stopPlaying = true;
+      this.loading = false;
     }
   }
 
