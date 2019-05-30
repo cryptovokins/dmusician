@@ -10,20 +10,28 @@
  .container-total {
    display: flex;
    flex-direction: column;
-
-
    background-color: var(--color-background);
  }
 
  .topbar {
-
    background-color: var(--color-navbar);
  }
 
 
- .container-app {
-   padding: 30px 30px;
+ .container {
    background-color: var(--color-background);
+   padding-left: 0;
+   padding-right: 0;
+   height: -moz-fill-available;
+   height: -webkit-fill-available;
+   height: stretch;
+ }
+
+ .container-app {
+   padding-top: 30px;
+   padding-bottom: 20px;
+   background-color: var(--color-background);
+   
  }
 
  .app-left-advert {
@@ -46,12 +54,4 @@
  }
 
 
- @media only screen and (max-width: 1260px) {
-   .container-app {
 
-     padding: 0;
-   }
-
-
-
- }

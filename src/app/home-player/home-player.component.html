@@ -1,29 +1,29 @@
-<div  fxLayout="column">
+<div class="container" fxLayout="column"  >
   <div fxLayout="row" fxFlex="1 1 10%" class="topbar" fxLayout.xs="row" fxLayoutAlign="start start">
-    <div fxFlex="1 1 10%" fxLayoutAlign="center"  fxFlex.md="1 1 20%"  fxFlex.sm="1 1 20%" fxFlex.xs="1 1 30%">
+    <div fxFlex="1 1 10%" fxLayoutAlign="center" fxFlex.md="1 1 20%" fxFlex.sm="1 1 20%" fxFlex.xs="1 1 30%">
       <div class="logo">
         <img src="{{logo}}" class="img-logo">
       </div>
     </div>
-    <div fxFlex="1 1 75%" fxHide.xs fxHide.sm fxHide.md >
+    <div fxFlex="1 1 75%" fxHide.xs fxHide.sm fxHide.md>
       <search-bar></search-bar>
     </div>
     <div fxFlex></div>
-    <div fxFlex="1 1 15%" fxFlex.md="1 1 30%" fxFlex.sm ="1 1 30%" fxFlex.xs ="1 1 40%" fxLayoutAlign="space-around ">
+    <div fxFlex="1 1 15%" fxFlex.md="1 1 30%" fxFlex.sm="1 1 30%" fxFlex.xs="1 1 40%" fxLayoutAlign="center end">
       <wallet></wallet>
     </div>
   </div>
-  <div  fxLayout="row" fxFlex="1 1 5%" class="topbar" fxLayout.xs="row" fxLayoutAlign="center">
-    <div fxFlex="1 1 90%"   fxHide.lg  fxHide.xl fxFlexAlign="center" >
+  <div fxLayout="row" fxFlex="1 1 5%" class="topbar" fxLayout.xs="row" fxLayoutAlign="center">
+    <div fxFlex="1 1 90%" fxHide.lg fxHide.xl fxFlexAlign="center">
       <search-bar></search-bar>
     </div>
   </div>
   <div class="container-header" fxFlex="1 1 auto" fxLayout.xl="row">
     <companies-balance></companies-balance>
   </div>
-  <div class="container-app" fxFlex="1 1 auto" fxLayout.xl="row" fxLayout.lg="row" fxLayout="column" fxLayoutAlign="start start" 
-    fxLayoutGap="20px" fxLayoutGap.md="10px" fxLayoutGap.xs="1px">
-    <div fxFlex="1 1 10%"   fxLayoutAlign="center center ">
+  <div class="container-app" fxFlex="1 1 auto" fxLayout.xl="row" fxLayout.lg="row" fxLayout="column"
+    fxLayoutAlign="start start" fxLayoutGap="20px" fxLayoutGap.md="10px" fxLayoutGap.xs="1px">
+    <div fxFlex="1 1 10%" fxLayoutAlign="center center ">
       <div class="app-left-advert">
         <banner-column [banners]="columnBannersOne" (bannerClicked)="clickAdvertisment()"></banner-column>
       </div>
