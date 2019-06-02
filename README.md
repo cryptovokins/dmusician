@@ -48,6 +48,6 @@ CryptoVikings
 
 # DApp URL
 
-https://dmusicicians.herokuapp.com
+https://dmusicians.herokuapp.com/
 
 
