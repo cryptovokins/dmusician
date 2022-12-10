@@ -34,7 +34,7 @@
     "core-js": "^2.5.7",
     "dotenv": "^8.0.0",
     "ethers": "^4.0.20",
-    "express": "^4.17.0",
+    "express": "^4.17.3",
     "http-server": "^0.11.1",
     "material-design-icons": "^3.0.1",
     "ngx-qrcode2": "^0.0.9",
